@@ -69,7 +69,7 @@ public class BranchCreation extends BaseClass {
 
 		Select s7 = new Select(year);
 		s7.selectByVisibleText(UtilityMethod.getProperty("Year"));
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 
 		// Month
 		WebDriverWait wait1 = new WebDriverWait(d, Duration.ofSeconds(10));
@@ -78,7 +78,7 @@ public class BranchCreation extends BaseClass {
 
 		Select s8 = new Select(month);
 		s8.selectByVisibleText(UtilityMethod.getProperty("Month"));
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 
 		// Date
 		List<WebElement> days = d.findElements(By.xpath("//div[@class='datepick-month']/table/tbody//td"));
@@ -90,7 +90,7 @@ public class BranchCreation extends BaseClass {
 			}
 		}
 
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 
 		// Branch Type
 		WebElement branchType = bcp.getBranchType();
