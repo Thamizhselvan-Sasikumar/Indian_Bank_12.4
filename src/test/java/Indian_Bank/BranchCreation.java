@@ -193,7 +193,7 @@ public class BranchCreation extends BaseClass {
 		System.out.println("Successfully Branch Created");
 
 		// Save
-		// d.findElement(By.xpath("//div[@id='editbranch']//button[text()='SAVE']")).click();
+		d.findElement(By.xpath("//div[@id='editbranch']//button[text()='SAVE']")).click();
 
 	}
 

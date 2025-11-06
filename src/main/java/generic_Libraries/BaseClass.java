@@ -15,7 +15,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class BaseClass {
 
@@ -33,10 +35,14 @@ public class BaseClass {
 			d = new ChromeDriver(op);
 		}
 		else if(browser.equalsIgnoreCase("Edge")) {
-			d = new EdgeDriver();
+			EdgeOptions op = new EdgeOptions();
+	        op.setAcceptInsecureCerts(true); 
+	        d = new EdgeDriver(op);
 		}
 		else if (browser.equalsIgnoreCase("FireFox")) {
-			d = new FirefoxDriver();
+			FirefoxOptions op = new FirefoxOptions();
+	        op.setAcceptInsecureCerts(true);
+	        d = new FirefoxDriver(op);
 		}
 		
 		d.manage().window().maximize();
