@@ -13,10 +13,14 @@ import org.testng.annotations.Test;
 
 import generic_Libraries.BaseClass;
 import generic_Libraries.UtilityMethod;
+import pom_package.PlanAuthScreenPage;
 
 public class PlanAuthScreen extends BaseClass{
+	
   @Test
   public void planAuth() throws InterruptedException, IOException {
+	  
+	  PlanAuthScreenPage pas=new PlanAuthScreenPage();
 	  
 		WebDriverWait wait = new WebDriverWait(d, Duration.ofSeconds(10));
 		  
@@ -35,7 +39,7 @@ public class PlanAuthScreen extends BaseClass{
 				 }
 		  }
 		  
-		  d.findElement(By.xpath("//img[@title='Audit']")).click();
+		  pas.getAudit().click();
 		  d.findElement(By.xpath("//h4[text()='Audit Plan & Schedule']")).click();
 		  d.findElement(By.xpath("//a[text()='Audit Plan Authorization']")).click();
 		  
@@ -65,7 +69,7 @@ public class PlanAuthScreen extends BaseClass{
 		  s4.selectByVisibleText(" 2025-2026");
 		  
 		  
-		  d.findElement(By.xpath("//input[@id='searchid']")).sendKeys("81025");
+		  d.findElement(By.xpath("//input[@id='searchid']")).sendKeys(UtilityMethod.getProperty("BranchCode"));
 		  
 		  Thread.sleep(2000);
 		  List<WebElement> BranchCode = d.findElements(By.xpath("//div[@class='search']//li"));

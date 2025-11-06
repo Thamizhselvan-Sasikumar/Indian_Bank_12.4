@@ -8,11 +8,12 @@ import org.openqa.selenium.support.PageFactory;
 
 import generic_Libraries.BaseClass;
 
-public class PlanScreenPage extends BaseClass{
+public class PlanAuthScreenPage extends BaseClass {
 	
-	public PlanScreenPage() {
+	public PlanAuthScreenPage() {
 		PageFactory.initElements(d, this);
 	}
+
 	
 	public WebElement getModule() {
 		return Module;
@@ -26,8 +27,8 @@ public class PlanScreenPage extends BaseClass{
 		return PlanSch;
 	}
 
-	public WebElement getPlan() {
-		return Plan;
+	public WebElement getPlanAuth() {
+		return PlanAuth;
 	}
 
 	public WebElement getAttachedTO() {
@@ -58,6 +59,7 @@ public class PlanScreenPage extends BaseClass{
 		return Save;
 	}
 
+
 	@FindBy(xpath = "//div[@class='cls_ms_module_name_wrap']//p")
 	private WebElement Module;
 	
@@ -67,8 +69,8 @@ public class PlanScreenPage extends BaseClass{
 	@FindBy(xpath = "//h4[text()='Audit Plan & Schedule']")
 	private WebElement PlanSch;
 
-	@FindBy(xpath = "//a[text()='Audit Plan']")
-	private WebElement Plan;
+	@FindBy(xpath = "//a[text()='Audit Plan Authorization']")
+	private WebElement PlanAuth;
 
 	@FindBy(xpath = "//select[@id='zoneCode']")
 	private WebElement AttachedTO;
@@ -90,9 +92,4 @@ public class PlanScreenPage extends BaseClass{
 	
 	@FindBy(xpath = "//div[@class='bottomcontent btm']//button")
 	private WebElement Save;
-	
-	
-
-
-	
 }

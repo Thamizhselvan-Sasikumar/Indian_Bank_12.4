@@ -40,21 +40,21 @@ public class PlanScreen extends BaseClass{
 			 }
 	  }
 	  
-	  d.findElement(By.xpath("//img[@title='Audit']")).click();
-	  d.findElement(By.xpath("//h4[text()='Audit Plan & Schedule']")).click();
-	  d.findElement(By.xpath("//a[text()='Audit Plan']")).click();
+	  psp.getAudit().click();
+	  psp.getPlanSch().click();
+	  psp.getPlan().click();
 	  
-	  WebElement AttachedTo = d.findElement(By.xpath("//select[@id='zoneCode']"));
+	  WebElement AttachedTo = psp.getAttachedTO();
 	  
 	  Select s1=new Select(AttachedTo);
-	  s1.selectByVisibleText("0001-RANIPET");
+	  s1.selectByVisibleText(UtilityMethod.getProperty("AttachedTo"));
 	  
-	  WebElement PlanType = d.findElement(By.xpath("//select[@id='planType']"));
+	  WebElement PlanType = psp.getPlanType();
 	  
 	  Select s2=new Select(PlanType);
 	  s2.selectByVisibleText("Annual");
 	  
-	  WebElement Period = d.findElement(By.xpath("//select[@id='period']"));
+	  WebElement Period = psp.getPeriod();
 
 	  if (Period.isEnabled()) {
 	      Select s3 = new Select(Period);
@@ -64,16 +64,16 @@ public class PlanScreen extends BaseClass{
 	      System.out.println("Period dropdown is disabled — skipping selection.");
 	  }
 	  
-	  WebElement FinancialYear = d.findElement(By.xpath("//select[@id='finYear']"));
+	  WebElement FinancialYear = psp.getFinYear();
 	  
 	  Select s4=new Select(FinancialYear);
 	  s4.selectByVisibleText(" 2025-2026");
 	  
 	  
-	  d.findElement(By.xpath("//input[@id='searchid']")).sendKeys("81025");
+	  psp.getSearchBox().sendKeys(UtilityMethod.getProperty("BranchCode"));
 	  
 	  Thread.sleep(2000);
-	  List<WebElement> BranchCode = d.findElements(By.xpath("//div[@class='search']//li"));
+	  List<WebElement> BranchCode = psp.getBranchCode();
 	  
 	  for(WebElement bc: BranchCode) {
 		  
@@ -88,7 +88,6 @@ public class PlanScreen extends BaseClass{
 		  
 	  }
 	  
-	  
 	 WebElement CheckBox = d.findElement(By.xpath("//input[@id='done"+UtilityMethod.getProperty("BranchCode")+"']"));
 	 CheckBox.click();
 	 
@@ -96,7 +95,7 @@ public class PlanScreen extends BaseClass{
 	 ActMandays.clear();
 	 ActMandays.sendKeys("10");
 	 
-	 d.findElement(By.xpath("//div[@class='bottomcontent btm']//button")).click();
+	psp.getSave().click();
 	  
   }
 }
