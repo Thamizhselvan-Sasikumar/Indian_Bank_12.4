@@ -2,6 +2,7 @@ package pom_package;
 
 import java.util.List;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -10,7 +11,7 @@ import generic_Libraries.BaseClass;
 
 public class PlanScreenPage extends BaseClass{
 	
-	public PlanScreenPage() {
+	public PlanScreenPage(WebDriver d) {
 		PageFactory.initElements(d, this);
 	}
 	

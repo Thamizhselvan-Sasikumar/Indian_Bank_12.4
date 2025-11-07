@@ -15,79 +15,78 @@ import org.testng.annotations.Test;
 
 import generic_Libraries.BaseClass;
 import generic_Libraries.UtilityMethod;
+import pom_package.ScheduleScreenPage;
 
 public class ScheduleScreen extends BaseClass {
-  @Test
-  public void schedule() throws InterruptedException, IOException {
-	  
-	  WebDriverWait wait = new WebDriverWait(d, Duration.ofSeconds(10));
-	  
-		Thread.sleep(3000);
-		List<WebElement> Module = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
-		        By.xpath("//div[@class='cls_ms_module_name_wrap']//p")));
-		  
-		  
-		  for(WebElement m: Module) {
-			  
-			  System.out.println(m.getText());
-				
-				 if( m.getText().equalsIgnoreCase("Risk Based Internal Audit")) {
-					 wait.until(ExpectedConditions.elementToBeClickable(m)).click();
-					 break; 
-				 }
-		  }
-		  
-		  d.findElement(By.xpath("//img[@title='Audit']")).click();
-		  d.findElement(By.xpath("//h4[text()='Audit Plan & Schedule']")).click();
-		  d.findElement(By.xpath("//a[text()='Audit Schedule']")).click();
-		  
-		  WebElement AttachedTo = d.findElement(By.xpath("//select[@id='zoneCode']"));
-		  
-		  Select s1=new Select(AttachedTo);
-		  s1.selectByValue("0001");
-		  
- d.findElement(By.xpath("//input[@id='searchid']")).sendKeys("81025");
-		  
-		  Thread.sleep(2000);
-		  List<WebElement> BranchCode = d.findElements(By.xpath("//div[@class='search']//li"));
-		  
-		  for(WebElement bc: BranchCode) {
-			  
-			  String bcode = bc.getText();
-			  
-			  System.out.println(bcode);
-			  
-			  if(bc.getText().equalsIgnoreCase(bcode)) {
-				  bc.click();
-				  break;
-			  }
-			  
-		  }
-		  
-		  WebElement generate = d.findElement(By.xpath("//button[text()='Generate']"));
-		  generate.click();
-		  
-		  
-		  d.findElement(By.xpath("//input[@id='cb1']")).click();
-		  
-		  d.findElement(By.xpath("//input[@id='teamLeadName1']/following-sibling::a")).click();	
-		  
-		  Thread.sleep(2000);
-		  WebElement radio = wait.until(ExpectedConditions.elementToBeClickable(
-				    By.id(UtilityMethod.getProperty("TL") + "CB")));
-		  radio.click();
-			
-		  Thread.sleep(3000);
-		  WebElement fromDate = wait.until(ExpectedConditions.elementToBeClickable(
-				    By.xpath("//input[@id='fromDate1']")
-				));
+	@Test
+	public void schedule() throws InterruptedException, IOException {
 
-				fromDate.click();
-		  
-		  Actions a = new Actions(d);
-		  a.sendKeys(Keys.ENTER).perform();
-		  
-		d.findElement(By.xpath("//div[@class='bottomcontent btm ']//button[text()='Save']")).click();
-			
-  }
+		ScheduleScreenPage ssp = new ScheduleScreenPage(d);
+
+		WebDriverWait wait = new WebDriverWait(d, Duration.ofSeconds(10));
+
+		Thread.sleep(3000);
+		List<WebElement> Module = wait.until(ExpectedConditions
+				.presenceOfAllElementsLocatedBy(By.xpath("//div[@class='cls_ms_module_name_wrap']//p")));
+
+		for (WebElement m : Module) {
+
+			System.out.println(m.getText());
+
+			if (m.getText().equalsIgnoreCase(UtilityMethod.getProperty("Module"))) {
+				wait.until(ExpectedConditions.elementToBeClickable(m)).click();
+				break;
+			}
+		}
+
+		ssp.getAudit().click();
+		ssp.getPlanSch().click();
+		ssp.getSchedule().click();
+
+		WebElement AttachedTo = ssp.getAttachedTO();
+
+		Select s1 = new Select(AttachedTo);
+		s1.selectByValue(UtilityMethod.getProperty("SchZone"));
+
+		ssp.getSearchBox().sendKeys(UtilityMethod.getProperty("BranchCode"));
+
+		Thread.sleep(2000);
+		List<WebElement> BranchCode = ssp.getBranchCode();
+
+		for (WebElement bc : BranchCode) {
+
+			String bcode = bc.getText();
+
+			System.out.println(bcode);
+
+			if (bc.getText().equalsIgnoreCase(bcode)) {
+				bc.click();
+				break;
+			}
+
+		}
+
+		WebElement generate = ssp.getGenerate();
+		generate.click();
+
+		ssp.getBranCheckBox().click();
+
+		ssp.getTeamLead().click();
+
+		Thread.sleep(2000);
+		WebElement radio = wait
+				.until(ExpectedConditions.elementToBeClickable(By.id(UtilityMethod.getProperty("TL") + "CB")));
+		radio.click();
+
+		Thread.sleep(3000);
+		WebElement fromDate = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='fromDate1']")));
+
+		fromDate.click();
+
+		Actions a = new Actions(d);
+		a.sendKeys(Keys.ENTER).perform();
+
+		ssp.getSave().click();
+
+	}
 }

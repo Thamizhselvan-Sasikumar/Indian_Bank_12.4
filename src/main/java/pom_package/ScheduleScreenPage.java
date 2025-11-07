@@ -7,14 +7,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import generic_Libraries.BaseClass;
+public class ScheduleScreenPage {
 
-public class PlanAuthScreenPage extends BaseClass {
-	
-	public PlanAuthScreenPage(WebDriver d) {
+	public ScheduleScreenPage(WebDriver d) {
 		PageFactory.initElements(d, this);
 	}
-
+	
+	@FindBy(xpath = "//div[@class='cls_ms_module_name_wrap']//p")
+	private WebElement Module;
 	
 	public WebElement getModule() {
 		return Module;
@@ -28,24 +28,12 @@ public class PlanAuthScreenPage extends BaseClass {
 		return PlanSch;
 	}
 
-	public WebElement getPlanAuth() {
-		return PlanAuth;
+	public WebElement getSchedule() {
+		return Schedule;
 	}
 
 	public WebElement getAttachedTO() {
 		return AttachedTO;
-	}
-
-	public WebElement getPlanType() {
-		return PlanType;
-	}
-
-	public WebElement getPeriod() {
-		return Period;
-	}
-
-	public WebElement getFinYear() {
-		return FinYear;
 	}
 
 	public WebElement getSearchBox() {
@@ -56,41 +44,50 @@ public class PlanAuthScreenPage extends BaseClass {
 		return BranchCode;
 	}
 
+	public WebElement getGenerate() {
+		return Generate;
+	}
+
+	public WebElement getBranCheckBox() {
+		return BranCheckBox;
+	}
+
+	public WebElement getTeamLead() {
+		return TeamLead;
+	}
+
 	public WebElement getSave() {
 		return Save;
 	}
 
-
-	@FindBy(xpath = "//div[@class='cls_ms_module_name_wrap']//p")
-	private WebElement Module;
-	
 	@FindBy(xpath = "//img[@title='Audit']")
 	private WebElement Audit;
 
 	@FindBy(xpath = "//h4[text()='Audit Plan & Schedule']")
 	private WebElement PlanSch;
 
-	@FindBy(xpath = "//a[text()='Audit Plan Authorization']")
-	private WebElement PlanAuth;
+	@FindBy(xpath = "//a[text()='Audit Schedule']")
+	private WebElement Schedule;
 
 	@FindBy(xpath = "//select[@id='zoneCode']")
 	private WebElement AttachedTO;
-
-	@FindBy(xpath = "//select[@id='planType']")
-	private WebElement PlanType;
-
-	@FindBy(xpath = "//select[@id='period']")
-	private WebElement Period;
-	
-	@FindBy(xpath = "//select[@id='finYear']")
-	private WebElement FinYear;
 	
 	@FindBy(xpath = "//input[@id='searchid']")
 	private WebElement SearchBox;
-	
+
 	@FindBy(xpath = "//div[@class='search']//li")
 	private List<WebElement> BranchCode;
+
+	@FindBy(xpath = "//button[text()='Generate']")
+	private WebElement Generate;
 	
-	@FindBy(xpath = "//div[@class='bottomcontent btm']//button")
+	@FindBy(xpath = "//input[@id='cb1']")
+	private WebElement BranCheckBox;
+	
+	@FindBy(xpath = "//input[@id='teamLeadName1']/following-sibling::a")
+	private WebElement TeamLead;
+	
+	@FindBy(xpath = "//div[@class='bottomcontent btm ']//button[text()='Save']")
 	private WebElement Save;
+	
 }

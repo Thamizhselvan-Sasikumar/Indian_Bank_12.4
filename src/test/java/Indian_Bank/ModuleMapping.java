@@ -36,22 +36,33 @@ public class ModuleMapping extends BaseClass {
 
 		for (WebElement bl : branchList) {
 
-			bl.getText().equalsIgnoreCase("00003");
+			bl.getText().equalsIgnoreCase(UtilityMethod.getProperty("BranchCode"));
 			bl.click();
 			break;
 		}
+		
+		d.findElement(By.xpath("//input[@id='checkFlag0']")).click();
 
-		List<WebElement> moduleList = d.findElements(By.xpath("//tbody[@class='sticky_tbody']//tr"));
+		/*
+		 * List<WebElement> moduleList =
+		 * d.findElements(By.xpath("//tbody[@class='sticky_tbody']//tr"));
+		 * 
+		 * for (WebElement ml : moduleList) {
+		 * 
+		 * ml.getText().equalsIgnoreCase("Treasury Branch"); String text = ml.getText();
+		 * System.out.println(text);
+		 * 
+		 * 
+		 * }
+		 */
 
-		for (WebElement ml : moduleList) {
-
-			ml.getText().equalsIgnoreCase("Treasury Branch");
-			String text = ml.getText();
-			System.out.println(text);
-			
-			
-		}
-
+		/*
+		 * WebDriverWait wait = new WebDriverWait(d, Duration.ofSeconds(10)); WebElement
+		 * saveButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+		 * "//button[normalize-space()='SAVE']"))); saveButton.click();
+		 */
+		
+		d.findElement(By.xpath("//table[@id='pagination']//button")).click();
 	}
 
 }

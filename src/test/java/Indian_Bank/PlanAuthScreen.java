@@ -20,59 +20,58 @@ public class PlanAuthScreen extends BaseClass{
   @Test
   public void planAuth() throws InterruptedException, IOException {
 	  
-	  PlanAuthScreenPage pas=new PlanAuthScreenPage();
+	  PlanAuthScreenPage pas=new PlanAuthScreenPage(d);
 	  
 		WebDriverWait wait = new WebDriverWait(d, Duration.ofSeconds(10));
 		  
 		Thread.sleep(3000);
 		List<WebElement> Module = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
-		        By.xpath("//div[@class='cls_ms_module_name_wrap']//p")));
-		  
+				By.xpath("//div[@class='cls_ms_module_name_wrap']//p")));
 		  
 		  for(WebElement m: Module) {
 			  
 			  System.out.println(m.getText());
 				
-				 if( m.getText().equalsIgnoreCase("Risk Based Internal Audit")) {
+				 if( m.getText().equalsIgnoreCase(UtilityMethod.getProperty("Module"))) {
 					 wait.until(ExpectedConditions.elementToBeClickable(m)).click();
 					 break; 
 				 }
 		  }
 		  
 		  pas.getAudit().click();
-		  d.findElement(By.xpath("//h4[text()='Audit Plan & Schedule']")).click();
-		  d.findElement(By.xpath("//a[text()='Audit Plan Authorization']")).click();
+		  pas.getPlanSch().click();
+		  pas.getPlanAuth().click();
 		  
-		  WebElement AttachedTo = d.findElement(By.xpath("//select[@id='zoneCode']"));
+		  WebElement AttachedTo = pas.getAttachedTO();
 		  
 		  Select s1=new Select(AttachedTo);
-		  s1.selectByVisibleText("0001-RANIPET");
+		  s1.selectByVisibleText(UtilityMethod.getProperty("AttachedTo"));
 		  
-		  WebElement PlanType = d.findElement(By.xpath("//select[@id='planType']"));
+		  WebElement PlanType = pas.getPlanType();
 		  
 		  Select s2=new Select(PlanType);
-		  s2.selectByVisibleText("Annual");
+		  s2.selectByVisibleText(UtilityMethod.getProperty("PlanType"));
 		  
-		  WebElement Period = d.findElement(By.xpath("//select[@id='period']"));
+		  WebElement Period = pas.getPeriod();
 
 		  if (Period.isEnabled()) {
 		      Select s3 = new Select(Period);
-		      s3.selectByVisibleText("1");
+		      s3.selectByVisibleText(UtilityMethod.getProperty("Period"));
 		      System.out.println("Period dropdown enabled — value selected.");
 		  } else {
 		      System.out.println("Period dropdown is disabled — skipping selection.");
 		  }
 		  
-		  WebElement FinancialYear = d.findElement(By.xpath("//select[@id='finYear']"));
+		  WebElement FinancialYear = pas.getFinYear();
 		  
 		  Select s4=new Select(FinancialYear);
-		  s4.selectByVisibleText(" 2025-2026");
+		  s4.selectByVisibleText(UtilityMethod.getProperty("FinYear"));
 		  
 		  
-		  d.findElement(By.xpath("//input[@id='searchid']")).sendKeys(UtilityMethod.getProperty("BranchCode"));
+		  pas.getSearchBox().sendKeys(UtilityMethod.getProperty("BranchCode"));
 		  
 		  Thread.sleep(2000);
-		  List<WebElement> BranchCode = d.findElements(By.xpath("//div[@class='search']//li"));
+		  List<WebElement> BranchCode = pas.getBranchCode();
 		  
 		  for(WebElement bc: BranchCode) {
 			  
@@ -92,8 +91,8 @@ public class PlanAuthScreen extends BaseClass{
 			 
 		WebElement AuthMandays = d.findElement(By.xpath("//input[@id='Authman"+UtilityMethod.getProperty("BranchCode")+"']"));
 		AuthMandays.clear();
-		AuthMandays.sendKeys("20");
+		AuthMandays.sendKeys(UtilityMethod.getProperty("AuthMan"));
 			 
-		d.findElement(By.xpath("//div[@class='bottomcontent btm']//button")).click();
+		pas.getSave().click();
   }
 }

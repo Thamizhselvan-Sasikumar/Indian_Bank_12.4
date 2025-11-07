@@ -43,7 +43,7 @@ public class ScheduleAuthScreen extends BaseClass {
 			  Select s1=new Select(AttachedTo);
 			  s1.selectByValue("0001");
 			  
-			  d.findElement(By.xpath("//input[@type='checkbox' and contains(@onclick, \"'81025'\")]")).click();
+			  d.findElement(By.xpath("//input[@type='checkbox' and contains(@onclick, \"+util+\")]")).click();
 			  
 				/*
 				 * //Auditee Code/Name Search
