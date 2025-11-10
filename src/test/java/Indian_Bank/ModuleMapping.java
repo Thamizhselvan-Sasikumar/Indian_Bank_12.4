@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
@@ -41,7 +42,19 @@ public class ModuleMapping extends BaseClass {
 			break;
 		}
 		
-		d.findElement(By.xpath("//input[@id='checkFlag0']")).click();
+		List<WebElement> rows = d.findElements(By.xpath("//tr[contains(@class,'Rows')]"));
+		
+		for(WebElement row: rows) {
+			if(row.getText().contains(UtilityMethod.getProperty("Module"))) {
+				WebElement CheckBox = row.findElement(By.xpath(".//input[contains(@id,'checkFlag')]"));
+				((JavascriptExecutor) d).executeScript("arguments[0].scrollIntoView(true);", CheckBox);
+				CheckBox.click();
+				break;
+			}
+			
+		}
+		
+		//d.findElement(By.xpath("//input[@id='checkFlag0']")).click();
 
 		/*
 		 * List<WebElement> moduleList =
@@ -62,7 +75,7 @@ public class ModuleMapping extends BaseClass {
 		 * "//button[normalize-space()='SAVE']"))); saveButton.click();
 		 */
 		
-		d.findElement(By.xpath("//table[@id='pagination']//button")).click();
+		//d.findElement(By.xpath("//table[@id='pagination']//button")).click();
 	}
 
 }

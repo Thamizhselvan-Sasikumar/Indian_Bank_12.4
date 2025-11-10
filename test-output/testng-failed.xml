@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Indian_Bank.ScheduleAuthScreen">
+      <class name="Indian_Bank.ModuleMapping">
         <methods>
           <include name="launchBrowser"/>
-          <include name="ScheduleAuth"/>
+          <include name="modulemapping"/>
           <include name="loginMethod"/>
         </methods>
-      </class> <!-- Indian_Bank.ScheduleAuthScreen -->
+      </class> <!-- Indian_Bank.ModuleMapping -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

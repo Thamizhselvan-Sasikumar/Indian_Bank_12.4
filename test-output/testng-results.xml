@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-10T16:13:19 IST" name="Default suite" finished-at="2025-11-10T16:13:34 IST" duration-ms="14554">
+  <suite started-at="2025-11-10T17:30:24 IST" name="Default suite" finished-at="2025-11-10T17:30:36 IST" duration-ms="11586">
     <groups>
     </groups>
-    <test started-at="2025-11-10T16:13:19 IST" name="Default test" finished-at="2025-11-10T16:13:34 IST" duration-ms="14554">
-      <class name="Indian_Bank.ScheduleAuthScreen">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Indian_Bank.ScheduleAuthScreen@7188af83]" started-at="2025-11-10T16:13:19 IST" name="launchBrowser" finished-at="2025-11-10T16:13:25 IST" duration-ms="6199" status="PASS">
+    <test started-at="2025-11-10T17:30:24 IST" name="Default test" finished-at="2025-11-10T17:30:36 IST" duration-ms="11586">
+      <class name="Indian_Bank.ModuleMapping">
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Indian_Bank.ModuleMapping@7188af83]" started-at="2025-11-10T17:30:24 IST" name="launchBrowser" finished-at="2025-11-10T17:30:31 IST" duration-ms="6563" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchBrowser -->
-        <test-method is-config="true" signature="loginMethod()[pri:0, instance:Indian_Bank.ScheduleAuthScreen@7188af83]" started-at="2025-11-10T16:13:25 IST" name="loginMethod" finished-at="2025-11-10T16:13:28 IST" duration-ms="2357" status="PASS">
+        <test-method is-config="true" signature="loginMethod()[pri:0, instance:Indian_Bank.ModuleMapping@7188af83]" started-at="2025-11-10T17:30:31 IST" name="loginMethod" finished-at="2025-11-10T17:30:33 IST" duration-ms="2373" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginMethod -->
-        <test-method signature="ScheduleAuth()[pri:0, instance:Indian_Bank.ScheduleAuthScreen@7188af83]" started-at="2025-11-10T16:13:28 IST" name="ScheduleAuth" finished-at="2025-11-10T16:13:33 IST" duration-ms="5911" status="PASS">
+        <test-method signature="modulemapping()[pri:0, instance:Indian_Bank.ModuleMapping@7188af83]" started-at="2025-11-10T17:30:33 IST" name="modulemapping" finished-at="2025-11-10T17:30:36 IST" duration-ms="2559" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ScheduleAuth -->
-      </class> <!-- Indian_Bank.ScheduleAuthScreen -->
+        </test-method> <!-- modulemapping -->
+      </class> <!-- Indian_Bank.ModuleMapping -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
