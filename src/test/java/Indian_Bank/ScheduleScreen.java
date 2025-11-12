@@ -4,8 +4,12 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 
+import org.apache.logging.log4j.util.PropertySource.Util;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -24,20 +28,6 @@ public class ScheduleScreen extends BaseClass {
 		ScheduleScreenPage ssp = new ScheduleScreenPage(d);
 
 		WebDriverWait wait = new WebDriverWait(d, Duration.ofSeconds(10));
-
-		Thread.sleep(3000);
-		List<WebElement> Module = wait.until(ExpectedConditions
-				.presenceOfAllElementsLocatedBy(By.xpath("//div[@class='cls_ms_module_name_wrap']//p")));
-
-		for (WebElement m : Module) {
-
-			System.out.println(m.getText());
-
-			if (m.getText().equalsIgnoreCase(UtilityMethod.getProperty("Module"))) {
-				wait.until(ExpectedConditions.elementToBeClickable(m)).click();
-				break;
-			}
-		}
 
 		ssp.getAudit().click();
 		ssp.getPlanSch().click();
@@ -69,24 +59,62 @@ public class ScheduleScreen extends BaseClass {
 		WebElement generate = ssp.getGenerate();
 		generate.click();
 
-		ssp.getBranCheckBox().click();
+		List<WebElement> rows = ssp.getRows();
 
-		ssp.getTeamLead().click();
+		// Check Box
+		for (WebElement row : rows) {
+			if (row.getText().contains(UtilityMethod.getProperty("BranchCode"))) {
+				WebElement CheckBox =ssp.getCheckBox(row);
+				((JavascriptExecutor) d).executeScript("arguments[0].scrollIntoView(true);", CheckBox);
+				CheckBox.click();
+			}
+		}
 
+		// Team Lead Icon
+		for (WebElement row : rows) {
+			if (row.getText().contains(UtilityMethod.getProperty("BranchCode"))) {
+				WebElement TeamLeadIcon =ssp.getTLIcon(row);
+				((JavascriptExecutor) d).executeScript("arguments[0].scrollIntoView(true);", TeamLeadIcon);
+				TeamLeadIcon.click();
+			}
+		}
+
+		// Team Lead selection
 		Thread.sleep(2000);
-		WebElement radio = wait
-				.until(ExpectedConditions.elementToBeClickable(By.id(UtilityMethod.getProperty("TL") + "CB")));
-		radio.click();
+		List<WebElement> TeamLeads = ssp.getTLList();
 
+		for (WebElement TeamLead : TeamLeads) {
+			if (TeamLead.getText().contains(UtilityMethod.getProperty("TL"))) {
+				WebElement TeamLeadSelection = ssp.getTLRadioButton(TeamLead);
+				((JavascriptExecutor) d).executeScript("arguments[0].scrollIntoView(true);", TeamLeadSelection);
+				TeamLeadSelection.click();
+			}
+		}
+
+		try {
+			Alert alert = d.switchTo().alert();
+			System.out.println("Alert text: " + alert.getText());
+			alert.accept(); // or alert.dismiss()
+		} catch (NoAlertPresentException e) {
+			// No alert appeared, continue
+			System.out.println("No alert present in Team Lead Selection.");
+		}
+
+		// From Date
 		Thread.sleep(3000);
-		WebElement fromDate = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='fromDate1']")));
-
-		fromDate.click();
+		for (WebElement row : rows) {
+			if (row.getText().contains(UtilityMethod.getProperty("BranchCode"))) {
+				WebElement FromDate = ssp.getFromDate(row);
+				((JavascriptExecutor) d).executeScript("arguments[0].scrollIntoView(true);", FromDate);
+				FromDate.click();
+			}
+		}
 
 		Actions a = new Actions(d);
 		a.sendKeys(Keys.ENTER).perform();
 
-		ssp.getSave().click();
+		// ssp.getSave().click();
 
 	}
+
 }

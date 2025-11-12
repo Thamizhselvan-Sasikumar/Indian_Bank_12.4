@@ -2,6 +2,7 @@ package pom_package;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -67,6 +68,20 @@ public class ScheduleAuthPage extends BaseClass{
 
 	@FindBy(xpath = "//div[@class='search']//li")
 	private List<WebElement> BranchCode;
+	
+	public List<WebElement> getBranchCodeRows() {
+		return BranchCodeRows;
+	}
+
+	public WebElement getCheckBox(WebElement row) {
+		return row.findElement(By.xpath(".//input[@type='checkbox')]"));
+	}
+
+	@FindBy(xpath = "//tr[contains(@class,'Rows')]")
+	private List<WebElement> BranchCodeRows;
+	
+	@FindBy(xpath = ".//input[@type='checkbox')]")
+	private WebElement CheckBox;
 	
 	@FindBy(xpath = "//button[@id='SaveData']")
 	private WebElement Save;

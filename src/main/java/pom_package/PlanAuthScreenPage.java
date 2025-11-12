@@ -2,6 +2,7 @@ package pom_package;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -55,6 +56,19 @@ public class PlanAuthScreenPage extends BaseClass {
 	public List<WebElement> getBranchCode() {
 		return BranchCode;
 	}
+	
+	public List<WebElement> getRowList() {
+		return rowList;
+	}
+
+	public WebElement getCheckBox(WebElement row) {
+		return row.findElement(By.xpath(".//input[@type='checkbox']"));
+	}
+
+	public WebElement getText(WebElement row) {
+		return row.findElement(By.xpath(".//input[contains(@id,'Authman')]"));
+	}
+
 
 	public WebElement getSave() {
 		return Save;
@@ -90,6 +104,15 @@ public class PlanAuthScreenPage extends BaseClass {
 	
 	@FindBy(xpath = "//div[@class='search']//li")
 	private List<WebElement> BranchCode;
+	
+	@FindBy(xpath = "//tr[contains(@class,'Rows')]")
+	private List<WebElement> rowList;
+	
+	@FindBy(xpath = ".//input[@type='checkbox']")
+	private WebElement CheckBox;
+	
+	@FindBy(xpath = ".//input[@type='text']")
+	private WebElement Text;
 	
 	@FindBy(xpath = "//div[@class='bottomcontent btm']//button")
 	private WebElement Save;

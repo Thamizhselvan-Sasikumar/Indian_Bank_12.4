@@ -1,14 +1,11 @@
 package Indian_Bank;
 
 import java.io.IOException;
-import java.time.Duration;
 import java.util.List;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import generic_Libraries.BaseClass;
@@ -22,21 +19,6 @@ public class PlanAuthScreen extends BaseClass{
 	  
 	  PlanAuthScreenPage pas=new PlanAuthScreenPage(d);
 	  
-		WebDriverWait wait = new WebDriverWait(d, Duration.ofSeconds(10));
-		  
-		Thread.sleep(3000);
-		List<WebElement> Module = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
-				By.xpath("//div[@class='cls_ms_module_name_wrap']//p")));
-		  
-		  for(WebElement m: Module) {
-			  
-			  System.out.println(m.getText());
-				
-				 if( m.getText().equalsIgnoreCase(UtilityMethod.getProperty("Module"))) {
-					 wait.until(ExpectedConditions.elementToBeClickable(m)).click();
-					 break; 
-				 }
-		  }
 		  
 		  pas.getAudit().click();
 		  pas.getPlanSch().click();
@@ -86,12 +68,27 @@ public class PlanAuthScreen extends BaseClass{
 			  
 		  }
 		  
-		WebElement AuthCheckBox = d.findElement(By.xpath("//input[@id='done"+UtilityMethod.getProperty("BranchCode")+"']"));
-		AuthCheckBox.click();
-			 
-		WebElement AuthMandays = d.findElement(By.xpath("//input[@id='Authman"+UtilityMethod.getProperty("BranchCode")+"']"));
-		AuthMandays.clear();
-		AuthMandays.sendKeys(UtilityMethod.getProperty("AuthMan"));
+		  List<WebElement> rows = pas.getRowList();
+		  
+			
+			for(WebElement row: rows) {
+				if(row.getText().contains(UtilityMethod.getProperty("BranchCode"))) {
+					WebElement CheckBox = pas.getCheckBox(row);
+					((JavascriptExecutor) d).executeScript("arguments[0].scrollIntoView(true);", CheckBox);
+					CheckBox.click();
+				}
+			}
+			
+			
+			for(WebElement row: rows) {
+				if(row.getText().contains(UtilityMethod.getProperty("BranchCode"))) {
+					WebElement Text =pas.getText(row);
+					((JavascriptExecutor) d).executeScript("arguments[0].scrollIntoView(true);", Text);
+					Text.clear();
+					Text.sendKeys(UtilityMethod.getProperty("AuthMan"));
+				}
+			}
+		  
 			 
 		pas.getSave().click();
   }

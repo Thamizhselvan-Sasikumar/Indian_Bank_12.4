@@ -8,16 +8,22 @@ import pom_package.BaseClassPage;
 import org.testng.annotations.BeforeClass;
 
 import java.io.IOException;
+import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BaseClass {
 
@@ -59,6 +65,8 @@ public class BaseClass {
 	public void loginMethod() throws InterruptedException, IOException {
 
 		BaseClassPage bccp = new BaseClassPage(d);
+		WebDriverWait wait = new WebDriverWait(d, Duration.ofSeconds(10));
+		
 		bccp.getUserID().sendKeys(UtilityMethod.getProperty("UN"));
 		bccp.getPassword().sendKeys(UtilityMethod.getProperty("PWD"));
 		bccp.getLoginButton().click();
@@ -71,6 +79,20 @@ public class BaseClass {
 	        // No alert appeared, continue
 	        System.out.println("No alert present.");
 	    }
+		
+		Thread.sleep(3000);
+		List<WebElement> Module = wait.until(ExpectedConditions
+				.presenceOfAllElementsLocatedBy(By.xpath("//div[@class='cls_ms_module_name_wrap']//p")));
+
+		for (WebElement m : Module) {
+
+			System.out.println(m.getText());
+
+			if (m.getText().equalsIgnoreCase(UtilityMethod.getProperty("Module"))) {
+				wait.until(ExpectedConditions.elementToBeClickable(m)).click();
+				break;
+			}
+		}
 	}
 
 

@@ -2,6 +2,7 @@ package pom_package;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,10 +13,10 @@ public class ScheduleScreenPage {
 	public ScheduleScreenPage(WebDriver d) {
 		PageFactory.initElements(d, this);
 	}
-	
+
 	@FindBy(xpath = "//div[@class='cls_ms_module_name_wrap']//p")
 	private WebElement Module;
-	
+
 	public WebElement getModule() {
 		return Module;
 	}
@@ -48,12 +49,28 @@ public class ScheduleScreenPage {
 		return Generate;
 	}
 
-	public WebElement getBranCheckBox() {
-		return BranCheckBox;
+	public List<WebElement> getRows() {
+		return Rows;
 	}
 
-	public WebElement getTeamLead() {
-		return TeamLead;
+	public WebElement getCheckBox(WebElement row) {
+		return row.findElement(By.xpath(".//input[@type='checkbox']"));
+	}
+
+	public WebElement getTLIcon(WebElement row) {
+		return row.findElement(By.xpath(".//input[contains(@id,'teamLead')]/following-sibling::a"));
+	}
+
+	public List<WebElement> getTLList() {
+		return TLList;
+	}
+
+	public WebElement getTLRadioButton(WebElement TeamLead) {
+		return TeamLead.findElement(By.xpath(".//input[@type='radio']"));
+	}
+
+	public WebElement getFromDate(WebElement row) {
+		return row.findElement(By.xpath(".//input[contains(@id,'fromDate')]"));
 	}
 
 	public WebElement getSave() {
@@ -71,7 +88,7 @@ public class ScheduleScreenPage {
 
 	@FindBy(xpath = "//select[@id='zoneCode']")
 	private WebElement AttachedTO;
-	
+
 	@FindBy(xpath = "//input[@id='searchid']")
 	private WebElement SearchBox;
 
@@ -80,14 +97,26 @@ public class ScheduleScreenPage {
 
 	@FindBy(xpath = "//button[text()='Generate']")
 	private WebElement Generate;
-	
-	@FindBy(xpath = "//input[@id='cb1']")
-	private WebElement BranCheckBox;
-	
-	@FindBy(xpath = "//input[@id='teamLeadName1']/following-sibling::a")
-	private WebElement TeamLead;
-	
+
+	@FindBy(xpath = "//tr[contains(@class,'Rows')]")
+	private List<WebElement> Rows;
+
+	@FindBy(xpath = ".//input[@type='checkbox']")
+	private WebElement CheckBox;
+
+	@FindBy(xpath = ".//input[contains(@id,'teamLead')]/following-sibling::a")
+	private WebElement TLIcon;
+
+	@FindBy(xpath = "//table[@class='tmmbr']")
+	private List<WebElement> TLList;
+
+	@FindBy(xpath = ".//input[@type='radio']")
+	private WebElement TLRadioButton;
+
+	@FindBy(xpath = ".//input[contains(@id,'fromDate')]")
+	private WebElement FromDate;
+
 	@FindBy(xpath = "//div[@class='bottomcontent btm ']//button[text()='Save']")
 	private WebElement Save;
-	
+
 }

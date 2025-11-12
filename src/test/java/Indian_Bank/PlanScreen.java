@@ -1,14 +1,11 @@
 package Indian_Bank;
 
 import java.io.IOException;
-import java.time.Duration;
 import java.util.List;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import generic_Libraries.BaseClass;
@@ -22,21 +19,6 @@ public class PlanScreen extends BaseClass {
 
 		PlanScreenPage psp = new PlanScreenPage(d);
 
-		WebDriverWait wait = new WebDriverWait(d, Duration.ofSeconds(10));
-
-		Thread.sleep(3000);
-		List<WebElement> Module = wait.until(ExpectedConditions
-				.presenceOfAllElementsLocatedBy(By.xpath("//div[@class='cls_ms_module_name_wrap']//p")));
-
-		for (WebElement m : Module) {
-
-			System.out.println(m.getText());
-
-			if (m.getText().equalsIgnoreCase(UtilityMethod.getProperty("Module"))) {
-				wait.until(ExpectedConditions.elementToBeClickable(m)).click();
-				break;
-			}
-		}
 
 		psp.getAudit().click();
 		psp.getPlanSch().click();
@@ -85,16 +67,28 @@ public class PlanScreen extends BaseClass {
 
 		}
 
-		WebElement CheckBox = d
-				.findElement(By.xpath("//input[@id='done" + UtilityMethod.getProperty("BranchCode") + "']"));
-		CheckBox.click();
-
-		WebElement ActMandays = d
-				.findElement(By.xpath("//input[@id='man" + UtilityMethod.getProperty("BranchCode") + "']"));
-		ActMandays.clear();
-		ActMandays.sendKeys(UtilityMethod.getProperty("ActMan"));
-
+		
+		List<WebElement> rows = psp.getRowList();
+		
+		for(WebElement row: rows) {
+			if(row.getText().contains(UtilityMethod.getProperty("BranchCode"))) {
+				WebElement CheckBox = psp.getCheckBox(row);
+				((JavascriptExecutor) d).executeScript("arguments[0].scrollIntoView(true);", CheckBox);
+				CheckBox.click();
+			}
+		}
+		
+		for(WebElement row: rows) {
+			if(row.getText().contains(UtilityMethod.getProperty("BranchCode"))) {
+				WebElement Text =psp.getText(row);
+				((JavascriptExecutor) d).executeScript("arguments[0].scrollIntoView(true);", Text);
+				Text.clear();
+				Text.sendKeys(UtilityMethod.getProperty("ActMan"));
+			}
+		}
+		
+  
 		psp.getSave().click();
 
-	}
+	} 
 }
