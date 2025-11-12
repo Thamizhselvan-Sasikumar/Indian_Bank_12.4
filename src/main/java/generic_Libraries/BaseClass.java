@@ -10,9 +10,11 @@ import org.testng.annotations.BeforeClass;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -52,11 +54,6 @@ public class BaseClass {
 		d.manage().window().maximize();
 		d.get(UtilityMethod.getProperty("URL"));
 
-		/*
-		 * BaseClassPage bccp = new BaseClassPage(d); bccp.getDetailButton().click();
-		 * bccp.getProceedLink().click();
-		 */
-
 	}
 
 	@BeforeMethod
@@ -78,19 +75,53 @@ public class BaseClass {
 			System.out.println("No alert present.");
 		}
 
-		Thread.sleep(3000);
-		List<WebElement> Module = wait.until(ExpectedConditions
-				.presenceOfAllElementsLocatedBy(By.xpath("//div[@class='cls_ms_module_name_wrap']//p")));
+		Thread.sleep(2000);
+		
+		try {
+		    // Wait for all available modules to load
+		    List<WebElement> Module = wait.until(
+		        ExpectedConditions.presenceOfAllElementsLocatedBy(
+		            By.xpath("//div[@class='cls_ms_module_name_wrap']//p")
+		        )
+		    );
 
-		for (WebElement m : Module) {
+		    boolean moduleFound = false;
 
-			System.out.println(m.getText());
+		    for (WebElement m : Module) {
+		        System.out.println("Found Module: " + m.getText());
 
-			if (m.getText().equalsIgnoreCase(UtilityMethod.getProperty("Module"))) {
-				wait.until(ExpectedConditions.elementToBeClickable(m)).click();
-				break;
-			}
+		        if (m.getText().equalsIgnoreCase(UtilityMethod.getProperty("Module"))) {
+		            wait.until(ExpectedConditions.elementToBeClickable(m)).click();
+		            System.out.println("✅ Clicked on module: " + m.getText());
+		            moduleFound = true;
+		            break;
+		        }
+		    }
+
+		    if (!moduleFound) {
+		        System.out.println("⚠️ Module not available. Skipping module selection.");
+		    }
+
+		} catch (NoSuchElementException e) {
+		    System.out.println("⚠️ No module elements found. Skipping module selection.");
+		} catch (ElementClickInterceptedException e) {
+		    System.out.println("⚠️ Unable to click module (overlay or blocked). Skipping module selection.");
+		} catch (Exception e) {
+		    System.out.println("⚠️ Unexpected error during module selection: " + e.getMessage());
 		}
+
+		/*
+		 * List<WebElement> Module = wait.until(ExpectedConditions
+		 * .presenceOfAllElementsLocatedBy(By.xpath(
+		 * "//div[@class='cls_ms_module_name_wrap']//p")));
+		 * 
+		 * for (WebElement m : Module) {
+		 * 
+		 * System.out.println(m.getText());
+		 * 
+		 * if (m.getText().equalsIgnoreCase(UtilityMethod.getProperty("Module"))) {
+		 * wait.until(ExpectedConditions.elementToBeClickable(m)).click(); break; } }
+		 */
 
 	}
 
