@@ -110,19 +110,6 @@ public class BaseClass {
 		    System.out.println("Unexpected error during module selection: " + e.getMessage());
 		}
 
-		/*
-		 * List<WebElement> Module = wait.until(ExpectedConditions
-		 * .presenceOfAllElementsLocatedBy(By.xpath(
-		 * "//div[@class='cls_ms_module_name_wrap']//p")));
-		 * 
-		 * for (WebElement m : Module) {
-		 * 
-		 * System.out.println(m.getText());
-		 * 
-		 * if (m.getText().equalsIgnoreCase(UtilityMethod.getProperty("Module"))) {
-		 * wait.until(ExpectedConditions.elementToBeClickable(m)).click(); break; } }
-		 */
-
 	}
 
 	// @AfterMethod
