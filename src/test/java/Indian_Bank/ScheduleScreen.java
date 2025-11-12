@@ -1,20 +1,15 @@
 package Indian_Bank;
 
 import java.io.IOException;
-import java.time.Duration;
 import java.util.List;
 
-import org.apache.logging.log4j.util.PropertySource.Util;
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import generic_Libraries.BaseClass;
@@ -27,7 +22,6 @@ public class ScheduleScreen extends BaseClass {
 
 		ScheduleScreenPage ssp = new ScheduleScreenPage(d);
 
-		WebDriverWait wait = new WebDriverWait(d, Duration.ofSeconds(10));
 
 		ssp.getAudit().click();
 		ssp.getPlanSch().click();
@@ -113,7 +107,7 @@ public class ScheduleScreen extends BaseClass {
 		Actions a = new Actions(d);
 		a.sendKeys(Keys.ENTER).perform();
 
-		// ssp.getSave().click();
+		ssp.getSave().click();
 
 	}
 

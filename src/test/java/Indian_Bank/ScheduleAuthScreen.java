@@ -58,7 +58,7 @@ public class ScheduleAuthScreen extends BaseClass {
 			}
 		}
 
-		//sap.getSave().click();
+		sap.getSave().click();
 
 	}
 

@@ -74,13 +74,13 @@ public class ScheduleAuthPage extends BaseClass{
 	}
 
 	public WebElement getCheckBox(WebElement row) {
-		return row.findElement(By.xpath(".//input[@type='checkbox')]"));
+		return row.findElement(By.xpath(".//input[@type='checkbox']"));
 	}
 
 	@FindBy(xpath = "//tr[contains(@class,'Rows')]")
 	private List<WebElement> BranchCodeRows;
 	
-	@FindBy(xpath = ".//input[@type='checkbox')]")
+	@FindBy(xpath = ".//input[@type='checkbox']")
 	private WebElement CheckBox;
 	
 	@FindBy(xpath = "//button[@id='SaveData']")

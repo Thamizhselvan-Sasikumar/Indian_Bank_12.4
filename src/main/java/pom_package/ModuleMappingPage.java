@@ -1,5 +1,8 @@
 package pom_package;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -28,9 +31,6 @@ public class ModuleMappingPage {
 		return BranchSearch;
 	}
 
-	public WebElement getBranchList() {
-		return BranchList;
-	}
 	
 	public WebElement getModuleList() {
 		return ModuleList;
@@ -52,13 +52,31 @@ public class ModuleMappingPage {
 	@FindBy(xpath = "//input[@id='searchid']")
 	private WebElement BranchSearch;
 	
+	public WebElement getCheckBox(WebElement row) {
+		return row.findElement(By.xpath(".//input[contains(@id,'checkFlag')]"));
+	}
+
+	@FindBy(xpath = ".//input[contains(@id,'checkFlag')]")
+	private WebElement CheckBox;
+	
+	public List<WebElement> getBranchList() {
+		return BranchList;
+	}
+
 	@FindBy(xpath = "//div[@class='search']//li")
-	private WebElement BranchList;
+	private List<WebElement> BranchList;
+	
+	public List<WebElement> getModList() {
+		return ModList;
+	}
+
+	@FindBy(xpath = "//tr[contains(@class,'Rows')]")
+	private List<WebElement> ModList;
 	
 	@FindBy(xpath = "//tbody[@class='sticky_tbody']//tr") //Module list
 	private WebElement ModuleList;
 	
-	@FindBy(xpath = "//button[normalize-space(text())='SAVE']")
+	@FindBy(xpath = "//table[@id='pagination']//button")
 	private WebElement SaveButton;
 	
 
