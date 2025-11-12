@@ -92,22 +92,22 @@ public class BaseClass {
 
 		        if (m.getText().equalsIgnoreCase(UtilityMethod.getProperty("Module"))) {
 		            wait.until(ExpectedConditions.elementToBeClickable(m)).click();
-		            System.out.println("✅ Clicked on module: " + m.getText());
+		            System.out.println("Clicked on module: " + m.getText());
 		            moduleFound = true;
 		            break;
 		        }
 		    }
 
 		    if (!moduleFound) {
-		        System.out.println("⚠️ Module not available. Skipping module selection.");
+		        System.out.println("Module not available. Skipping module selection.");
 		    }
 
 		} catch (NoSuchElementException e) {
-		    System.out.println("⚠️ No module elements found. Skipping module selection.");
+		    System.out.println("No module elements found. Skipping module selection.");
 		} catch (ElementClickInterceptedException e) {
-		    System.out.println("⚠️ Unable to click module (overlay or blocked). Skipping module selection.");
+		    System.out.println("Unable to click module (overlay or blocked). Skipping module selection.");
 		} catch (Exception e) {
-		    System.out.println("⚠️ Unexpected error during module selection: " + e.getMessage());
+		    System.out.println("Unexpected error during module selection: " + e.getMessage());
 		}
 
 		/*
