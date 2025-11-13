@@ -14,7 +14,7 @@ import pom_package.ScheduleAuthPage;
 
 public class ScheduleAuthScreen extends BaseClass {
 
-	@Test
+	@Test(priority = 5)
 	public void ScheduleAuth() throws InterruptedException, IOException {
 
 		ScheduleAuthPage sap = new ScheduleAuthPage(d);

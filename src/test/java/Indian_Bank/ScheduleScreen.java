@@ -17,7 +17,8 @@ import generic_Libraries.UtilityMethod;
 import pom_package.ScheduleScreenPage;
 
 public class ScheduleScreen extends BaseClass {
-	@Test
+	
+	@Test(priority = 4)
 	public void schedule() throws InterruptedException, IOException {
 
 		ScheduleScreenPage ssp = new ScheduleScreenPage(d);

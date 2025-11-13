@@ -1,10 +1,13 @@
 package generic_Libraries;
 
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pom_package.BaseClassPage;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 
 import java.io.IOException;
@@ -57,15 +60,42 @@ public class BaseClass {
 	}
 
 	@BeforeMethod
-	public void loginMethod() throws InterruptedException, IOException {
+	@Parameters("role")
+	public void loginMethod(String role) throws InterruptedException, IOException {
 
 		BaseClassPage bccp = new BaseClassPage(d);
 		WebDriverWait wait = new WebDriverWait(d, Duration.ofSeconds(10));
 
-		bccp.getUserID().sendKeys(UtilityMethod.getProperty("UN"));
-		bccp.getPassword().sendKeys(UtilityMethod.getProperty("PWD"));
+		String username = "";
+		String password = "";
+
+		switch (role.toUpperCase()) {
+		case "NCS":
+			username = UtilityMethod.getProperty("SuperAdmin");
+			password = UtilityMethod.getProperty("SuperAdmiPassword");
+			break;
+
+		case "HO":
+			username = UtilityMethod.getProperty("HOUser");
+			password = UtilityMethod.getProperty("HOUserPassword");
+			break;
+
+		case "AUDITOR":
+			username = UtilityMethod.getProperty("AuditorUser");
+			password = UtilityMethod.getProperty("AuditorPassword");
+			break;
+
+		default:
+			username = UtilityMethod.getProperty("Default");
+			password = UtilityMethod.getProperty("DefaultPassword");
+			break;
+		}
+
+		bccp.getUserID().sendKeys(username);
+		bccp.getPassword().sendKeys(password);
 		bccp.getLoginButton().click();
 		Thread.sleep(2000);
+		
 		try {
 			Alert alert = d.switchTo().alert();
 			System.out.println("Alert text: " + alert.getText());
@@ -76,52 +106,55 @@ public class BaseClass {
 		}
 
 		Thread.sleep(2000);
-		
+
 		try {
-		    // Wait for all available modules to load
-		    List<WebElement> Module = wait.until(
-		        ExpectedConditions.presenceOfAllElementsLocatedBy(
-		            By.xpath("//div[@class='cls_ms_module_name_wrap']//p")
-		        )
-		    );
+			// Wait for all available modules to load
+			List<WebElement> Module = wait.until(ExpectedConditions
+					.presenceOfAllElementsLocatedBy(By.xpath("//div[@class='cls_ms_module_name_wrap']//p")));
 
-		    boolean moduleFound = false;
+			boolean moduleFound = false;
 
-		    for (WebElement m : Module) {
-		        System.out.println("Found Module: " + m.getText());
+			for (WebElement m : Module) {
+				System.out.println("Found Module: " + m.getText());
 
-		        if (m.getText().equalsIgnoreCase(UtilityMethod.getProperty("Module"))) {
-		            wait.until(ExpectedConditions.elementToBeClickable(m)).click();
-		            System.out.println("Clicked on module: " + m.getText());
-		            moduleFound = true;
-		            break;
-		        }
-		    }
+				if (m.getText().equalsIgnoreCase(UtilityMethod.getProperty("Module"))) {
+					wait.until(ExpectedConditions.elementToBeClickable(m)).click();
+					System.out.println("Clicked on module: " + m.getText());
+					moduleFound = true;
+					break;
+				}
+			}
 
-		    if (!moduleFound) {
-		        System.out.println("Module not available. Skipping module selection.");
-		    }
+			if (!moduleFound) {
+				System.out.println("Module not available. Skipping module selection.");
+			}
 
 		} catch (NoSuchElementException e) {
-		    System.out.println("No module elements found. Skipping module selection.");
+			System.out.println("No module elements found. Skipping module selection.");
 		} catch (ElementClickInterceptedException e) {
-		    System.out.println("Unable to click module (overlay or blocked). Skipping module selection.");
+			System.out.println("Unable to click module (overlay or blocked). Skipping module selection.");
 		} catch (Exception e) {
-		    System.out.println("Unexpected error during module selection: " + e.getMessage());
+			System.out.println("Unexpected error during module selection: " + e.getMessage());
 		}
 
 	}
 
-	// @AfterMethod
+	@AfterMethod
 	public void logoutMethod() {
 
 		BaseClassPage bccp = new BaseClassPage(d);
 		bccp.getLogout().click();
-		Alert alert = d.switchTo().alert();
-		alert.accept();
+		try {
+			Alert alert = d.switchTo().alert();
+			System.out.println("Alert text: " + alert.getText());
+			alert.accept(); // or alert.dismiss()
+		} catch (NoAlertPresentException e) {
+			// No alert appeared, continue
+			System.out.println("No alert present.");
+		}
 	}
 
-	// @AfterClass
+	@AfterClass
 	public void closeBrowser() {
 
 		d.quit();

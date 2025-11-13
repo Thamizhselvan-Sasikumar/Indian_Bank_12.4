@@ -14,7 +14,7 @@ import pom_package.PlanScreenPage;
 
 public class PlanScreen extends BaseClass {
 
-	@Test
+	@Test(priority = 3)
 	public void plan() throws InterruptedException, IOException {
 
 		PlanScreenPage psp = new PlanScreenPage(d);

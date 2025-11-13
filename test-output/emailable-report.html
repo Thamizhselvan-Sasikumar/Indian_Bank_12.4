@@ -8,11 +8,118 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">39,892</td><td></td><td></td></tr>
+<tr><th colspan="8">AuditSuite</th></tr>
+<tr><td><a href="#t0">BranchCreation</a></td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">62,226</td><td></td><td></td></tr>
+<tr class="stripe"><td><a href="#t1">PlanSchl</a></td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">76,776</td><td></td><td></td></tr>
+<tr><th>Total</th><th class="num">6</th><th class="num">0</th><th class="num">0</th><th class="num">0</th><th class="num">139,002</th><th colspan="2"></th></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">Indian_Bank.BranchCreation</td><td><a href="#m0">branchCreation</a></td><td rowspan="1">1762954764283</td><td rowspan="1">15788</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">AuditSuite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">BranchCreation &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">Indian_Bank.ModuleMapping</td><td><a href="#m0">logoutMethod</a></td><td rowspan="1">1763032132853</td><td rowspan="1">1386</td></tr><tr><th colspan="4">BranchCreation &#8212; skipped (configuration methods)</th></tr><tr class="skippedeven"><td rowspan="1">Indian_Bank.ModuleMapping</td><td><a href="#m1">closeBrowser</a></td><td rowspan="1">1763032134246</td><td rowspan="1">0</td></tr><tr><th colspan="4">BranchCreation &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">Indian_Bank.BranchCreation</td><td><a href="#m2">branchCreation</a></td><td rowspan="1">1763032093473</td><td rowspan="1">14909</td></tr><tr class="passedodd"><td rowspan="1">Indian_Bank.ModuleMapping</td><td><a href="#m3">modulemapping</a></td><td rowspan="1">1763032130381</td><td rowspan="1">2466</td></tr></tbody>
+<tbody id="t1"><tr><th colspan="4">PlanSchl &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">Indian_Bank.PlanAuthScreen</td><td><a href="#m4">logoutMethod</a></td><td rowspan="1">1763032167654</td><td rowspan="1">2411</td></tr><tr class="failedodd"><td rowspan="1">Indian_Bank.PlanScreen</td><td><a href="#m5">logoutMethod</a></td><td rowspan="1">1763032150563</td><td rowspan="1">1508</td></tr><tr class="failedeven"><td rowspan="1">Indian_Bank.ScheduleAuthScreen</td><td><a href="#m6">logoutMethod</a></td><td rowspan="1">1763032209234</td><td rowspan="1">1870</td></tr><tr><th colspan="4">PlanSchl &#8212; skipped (configuration methods)</th></tr><tr class="skippedeven"><td rowspan="1">Indian_Bank.PlanAuthScreen</td><td><a href="#m7">closeBrowser</a></td><td rowspan="1">1763032170068</td><td rowspan="1">0</td></tr><tr class="skippedodd"><td rowspan="1">Indian_Bank.PlanScreen</td><td><a href="#m8">closeBrowser</a></td><td rowspan="1">1763032152079</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td rowspan="1">Indian_Bank.ScheduleAuthScreen</td><td><a href="#m9">closeBrowser</a></td><td rowspan="1">1763032211108</td><td rowspan="1">0</td></tr><tr><th colspan="4">PlanSchl &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">Indian_Bank.PlanAuthScreen</td><td><a href="#m10">planAuth</a></td><td rowspan="1">1763032163060</td><td rowspan="1">4591</td></tr><tr class="passedodd"><td rowspan="1">Indian_Bank.PlanScreen</td><td><a href="#m11">plan</a></td><td rowspan="1">1763032144532</td><td rowspan="1">6017</td></tr><tr class="passedeven"><td rowspan="1">Indian_Bank.ScheduleAuthScreen</td><td><a href="#m12">ScheduleAuth</a></td><td rowspan="1">1763032204269</td><td rowspan="1">4960</td></tr><tr class="passedodd"><td rowspan="1">Indian_Bank.ScheduleScreen</td><td><a href="#m13">schedule</a></td><td rowspan="1">1763032180724</td><td rowspan="1">11952</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">Indian_Bank.BranchCreation#branchCreation</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>BranchCreation</h2><h3 id="m0">Indian_Bank.ModuleMapping#logoutMethod</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;img src=&quot;images/logOutIconNew.png&quot; onclick=&quot;redirectURL(&apos;logout.htm?menuOptId=56&apos;)&quot; title=&quot;Logout&quot; class=&quot;cls_Menu_Icons&quot;&gt; is not clickable at point (1117, 28). Other element would receive the click: &lt;div class=&quot;sweet-overlay&quot; tabindex=&quot;-1&quot; style=&quot;opacity: 0.11; display: block;&quot;&gt;&lt;/div&gt;
+  (Session info: chrome=142.0.7444.135)
+Build info: version: &apos;4.25.0&apos;, revision: &apos;8a8aea2337&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;22.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [d699c94646f8d68316300648efa3d1e1, clickElement {id=f.7F2C2B50B63BFD8F21B793A5A1CCEBE1.d.197DA7062FEF6FC7CEAD463360E45F6D.e.200}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\THAMIZ~1.S\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54167}, goog:processID: 17140, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54167/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (d699c94646f8d68316300648efa3d1e1)] -&gt; xpath: //img[@title=&apos;Logout&apos;]]
+Session ID: d699c94646f8d68316300648efa3d1e1
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy15.click(Unknown Source)
+	at generic_Libraries.BaseClass.logoutMethod(BaseClass.java:146)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+... Removed 35 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">Indian_Bank.ModuleMapping#closeBrowser</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">Indian_Bank.BranchCreation#branchCreation</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">Indian_Bank.ModuleMapping#modulemapping</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>PlanSchl</h2><h3 id="m4">Indian_Bank.PlanAuthScreen#logoutMethod</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found
+  (Session info: chrome=142.0.7444.135)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Build info: version: &apos;4.25.0&apos;, revision: &apos;8a8aea2337&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;22.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [5a16b4fda187264a27ebe32a2e1fc127, clickElement {id=f.6AF2C3D8FC64A67271934B8F4EF30ED1.d.B404BEE33C36AB31E089053242FCD673.e.251}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\THAMIZ~1.S\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54244}, goog:processID: 18996, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54244/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (5a16b4fda187264a27ebe32a2e1fc127)] -&gt; xpath: //img[@title=&apos;Logout&apos;]]
+Session ID: 5a16b4fda187264a27ebe32a2e1fc127
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy15.click(Unknown Source)
+	at generic_Libraries.BaseClass.logoutMethod(BaseClass.java:146)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+... Removed 35 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">Indian_Bank.PlanScreen#logoutMethod</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found
+  (Session info: chrome=142.0.7444.135)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Build info: version: &apos;4.25.0&apos;, revision: &apos;8a8aea2337&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;22.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [bfeaf3806eaccb354515382ec1f395f2, clickElement {id=f.E6454FBBCDA896FBC430A0F00D304562.d.A7E8512BFD231C4A8DF757B9EB33B61E.e.291}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\THAMIZ~1.S\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54213}, goog:processID: 24924, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54213/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (bfeaf3806eaccb354515382ec1f395f2)] -&gt; xpath: //img[@title=&apos;Logout&apos;]]
+Session ID: bfeaf3806eaccb354515382ec1f395f2
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy15.click(Unknown Source)
+	at generic_Libraries.BaseClass.logoutMethod(BaseClass.java:146)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+... Removed 35 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">Indian_Bank.ScheduleAuthScreen#logoutMethod</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found
+  (Session info: chrome=142.0.7444.135)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Build info: version: &apos;4.25.0&apos;, revision: &apos;8a8aea2337&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;22.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [b01bf6ec77b1ef021231f4d4ae1ce7a9, clickElement {id=f.5721A867B16B11D6416248012CC8D425.d.BBD7A36C6636F3189DA35345E914EF45.e.360}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\THAMIZ~1.S\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54334}, goog:processID: 4072, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54334/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (b01bf6ec77b1ef021231f4d4ae1ce7a9)] -&gt; xpath: //img[@title=&apos;Logout&apos;]]
+Session ID: b01bf6ec77b1ef021231f4d4ae1ce7a9
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy15.click(Unknown Source)
+	at generic_Libraries.BaseClass.logoutMethod(BaseClass.java:146)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+... Removed 35 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m7">Indian_Bank.PlanAuthScreen#closeBrowser</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m8">Indian_Bank.PlanScreen#closeBrowser</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m9">Indian_Bank.ScheduleAuthScreen#closeBrowser</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m10">Indian_Bank.PlanAuthScreen#planAuth</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m11">Indian_Bank.PlanScreen#plan</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m12">Indian_Bank.ScheduleAuthScreen#ScheduleAuth</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m13">Indian_Bank.ScheduleScreen#schedule</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

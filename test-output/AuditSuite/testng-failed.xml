@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [AuditSuite]">
+  <test thread-count="5" name="BranchCreation(failed)">
+    <parameter name="role" value="NCS"/>
+    <classes>
+      <class name="Indian_Bank.BranchCreation">
+        <methods>
+          <include name="launchBrowser"/>
+          <include name="loginMethod"/>
+          <include name="branchCreation"/>
+        </methods>
+      </class> <!-- Indian_Bank.BranchCreation -->
+    </classes>
+  </test> <!-- BranchCreation(failed) -->
+</suite> <!-- Failed suite [AuditSuite] -->

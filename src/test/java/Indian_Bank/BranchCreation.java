@@ -19,7 +19,7 @@ import pom_package.BranchCreationPage;
 
 public class BranchCreation extends BaseClass {
 
-	@Test
+	@Test(priority = 1)
 	public void branchCreation() throws InterruptedException, IOException {
 
 		BranchCreationPage bcp = new BranchCreationPage(d);

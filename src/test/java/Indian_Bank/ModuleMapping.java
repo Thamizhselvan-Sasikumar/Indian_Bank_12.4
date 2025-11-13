@@ -13,7 +13,7 @@ import pom_package.ModuleMappingPage;
 
 public class ModuleMapping extends BaseClass {
 
-	@Test
+	@Test(priority = 2)
 	public void modulemapping() throws IOException, InterruptedException {
 
 		ModuleMappingPage mmp = new ModuleMappingPage(d);
