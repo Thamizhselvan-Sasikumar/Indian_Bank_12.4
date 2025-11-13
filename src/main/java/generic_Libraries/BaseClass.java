@@ -33,6 +33,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BaseClass {
 
 	public WebDriver d;
+	
+	public WebDriverWait  wait;
 
 	@BeforeClass
 	public void launchBrowser() throws InterruptedException, IOException {
@@ -139,11 +141,14 @@ public class BaseClass {
 
 	}
 
-	@AfterMethod
+	@AfterClass
 	public void logoutMethod() {
-
+		
 		BaseClassPage bccp = new BaseClassPage(d);
 		bccp.getLogout().click();
+		
+		
+		
 		try {
 			Alert alert = d.switchTo().alert();
 			System.out.println("Alert text: " + alert.getText());

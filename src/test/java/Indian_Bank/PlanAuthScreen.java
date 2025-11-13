@@ -91,5 +91,7 @@ public class PlanAuthScreen extends BaseClass{
 		  
 			 
 		pas.getSave().click();
+		
+		System.out.println("Branch "+UtilityMethod.getProperty("BranchCode")+" has been Planned");
   }
 }

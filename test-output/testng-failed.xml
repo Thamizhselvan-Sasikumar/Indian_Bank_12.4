@@ -1,15 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [AuditSuite]">
+  <test thread-count="5" name="AuditExecution(failed)">
+    <parameter name="role" value="AUDITOR"/>
     <classes>
+      <class name="Indian_Bank.PlanScreen">
+        <methods>
+          <include name="launchBrowser"/>
+          <include name="logoutMethod"/>
+          <include name="closeBrowser"/>
+          <include name="plan"/>
+          <include name="loginMethod"/>
+        </methods>
+      </class> <!-- Indian_Bank.PlanScreen -->
+      <class name="Indian_Bank.ScheduleAuthScreen">
+        <methods>
+          <include name="launchBrowser"/>
+          <include name="logoutMethod"/>
+          <include name="closeBrowser"/>
+          <include name="loginMethod"/>
+          <include name="ScheduleAuth"/>
+        </methods>
+      </class> <!-- Indian_Bank.ScheduleAuthScreen -->
+      <class name="Indian_Bank.PlanAuthScreen">
+        <methods>
+          <include name="launchBrowser"/>
+          <include name="planAuth"/>
+          <include name="closeBrowser"/>
+          <include name="logoutMethod"/>
+          <include name="loginMethod"/>
+        </methods>
+      </class> <!-- Indian_Bank.PlanAuthScreen -->
       <class name="Indian_Bank.ScheduleScreen">
         <methods>
           <include name="launchBrowser"/>
+          <include name="logoutMethod"/>
+          <include name="closeBrowser"/>
           <include name="schedule"/>
           <include name="loginMethod"/>
         </methods>
       </class> <!-- Indian_Bank.ScheduleScreen -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- AuditExecution(failed) -->
+</suite> <!-- Failed suite [AuditSuite] -->

@@ -59,6 +59,8 @@ public class ScheduleAuthScreen extends BaseClass {
 		}
 
 		sap.getSave().click();
+		
+		System.out.println("Branch "+UtilityMethod.getProperty("BranchCode")+" has been Scheduled");
 
 	}
 

@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-13T16:37:52 IST" name="AuditSuite" finished-at="2025-11-13T16:40:11 IST" duration-ms="139099">
+  <suite started-at="2025-11-13T18:43:30 IST" name="AuditSuite" finished-at="2025-11-13T18:45:36 IST" duration-ms="126411">
     <groups>
     </groups>
-    <test started-at="2025-11-13T16:37:52 IST" name="BranchCreation" finished-at="2025-11-13T16:38:54 IST" duration-ms="62226">
+    <test started-at="2025-11-13T18:43:30 IST" name="BranchCreation" finished-at="2025-11-13T18:44:29 IST" duration-ms="59630">
       <class name="Indian_Bank.ModuleMapping">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Indian_Bank.ModuleMapping@7188af83]" started-at="2025-11-13T16:38:30 IST" name="launchBrowser" finished-at="2025-11-13T16:38:35 IST" duration-ms="4960" status="PASS">
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Indian_Bank.ModuleMapping@247310d0]" started-at="2025-11-13T18:44:07 IST" name="launchBrowser" finished-at="2025-11-13T18:44:11 IST" duration-ms="4482" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchBrowser -->
-        <test-method is-config="true" signature="loginMethod(java.lang.String)[pri:0, instance:Indian_Bank.ModuleMapping@7188af83]" started-at="2025-11-13T16:38:35 IST" name="loginMethod" finished-at="2025-11-13T16:38:50 IST" duration-ms="15240" status="PASS">
+        <test-method is-config="true" signature="loginMethod(java.lang.String)[pri:0, instance:Indian_Bank.ModuleMapping@247310d0]" started-at="2025-11-13T18:44:11 IST" name="loginMethod" finished-at="2025-11-13T18:44:26 IST" duration-ms="14988" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -22,65 +22,52 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginMethod -->
-        <test-method signature="modulemapping()[pri:2, instance:Indian_Bank.ModuleMapping@7188af83]" started-at="2025-11-13T16:38:50 IST" name="modulemapping" finished-at="2025-11-13T16:38:52 IST" duration-ms="2466" status="PASS">
+        <test-method signature="modulemapping()[pri:2, instance:Indian_Bank.ModuleMapping@247310d0]" started-at="2025-11-13T18:44:26 IST" name="modulemapping" finished-at="2025-11-13T18:44:29 IST" duration-ms="2572" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- modulemapping -->
-        <test-method is-config="true" signature="logoutMethod()[pri:0, instance:Indian_Bank.ModuleMapping@7188af83]" started-at="2025-11-13T16:38:52 IST" name="logoutMethod" finished-at="2025-11-13T16:38:54 IST" duration-ms="1386" status="FAIL">
-          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Indian_Bank.ModuleMapping@247310d0]" started-at="2025-11-13T18:44:29 IST" name="closeBrowser" finished-at="2025-11-13T18:44:29 IST" duration-ms="543" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="logoutMethod()[pri:0, instance:Indian_Bank.ModuleMapping@247310d0]" started-at="2025-11-13T18:44:29 IST" name="logoutMethod" finished-at="2025-11-13T18:44:29 IST" duration-ms="2" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchSessionException">
             <message>
-              <![CDATA[element click intercepted: Element <img src="images/logOutIconNew.png" onclick="redirectURL('logout.htm?menuOptId=56')" title="Logout" class="cls_Menu_Icons"> is not clickable at point (1117, 28). Other element would receive the click: <div class="sweet-overlay" tabindex="-1" style="opacity: 0.11; display: block;"></div>
-  (Session info: chrome=142.0.7444.135)
+              <![CDATA[Session ID is null. Using WebDriver after calling quit()?
 Build info: version: '4.25.0', revision: '8a8aea2337'
 System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [d699c94646f8d68316300648efa3d1e1, clickElement {id=f.7F2C2B50B63BFD8F21B793A5A1CCEBE1.d.197DA7062FEF6FC7CEAD463360E45F6D.e.200}]
-Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\THAMIZ~1.S\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54167}, goog:processID: 17140, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54167/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (d699c94646f8d68316300648efa3d1e1)] -> xpath: //img[@title='Logout']]
-Session ID: d699c94646f8d68316300648efa3d1e1]]>
+Command: [null, findElement {value=//img[@title='Logout'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\THAMIZ~1.S\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58311}, goog:processID: 11424, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58311/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <img src="images/logOutIconNew.png" onclick="redirectURL('logout.htm?menuOptId=56')" title="Logout" class="cls_Menu_Icons"> is not clickable at point (1117, 28). Other element would receive the click: <div class="sweet-overlay" tabindex="-1" style="opacity: 0.11; display: block;"></div>
-  (Session info: chrome=142.0.7444.135)
+              <![CDATA[org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
 Build info: version: '4.25.0', revision: '8a8aea2337'
 System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [d699c94646f8d68316300648efa3d1e1, clickElement {id=f.7F2C2B50B63BFD8F21B793A5A1CCEBE1.d.197DA7062FEF6FC7CEAD463360E45F6D.e.200}]
-Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\THAMIZ~1.S\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54167}, goog:processID: 17140, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54167/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (d699c94646f8d68316300648efa3d1e1)] -> xpath: //img[@title='Logout']]
-Session ID: d699c94646f8d68316300648efa3d1e1
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+Command: [null, findElement {value=//img[@title='Logout'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\THAMIZ~1.S\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58311}, goog:processID: 11424, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58311/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:151)
 at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
 at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
 at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-at jdk.proxy2/jdk.proxy2.$Proxy15.click(Unknown Source)
-at generic_Libraries.BaseClass.logoutMethod(BaseClass.java:146)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy14.click(Unknown Source)
+at generic_Libraries.BaseClass.logoutMethod(BaseClass.java:148)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
 at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:393)
 at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:326)
-at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:810)
-at org.testng.internal.invokers.TestInvoker.runAfterConfigurations(TestInvoker.java:779)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:755)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at org.testng.internal.invokers.TestMethodWorker.invokeAfterClassConfigurations(TestMethodWorker.java:229)
+at org.testng.internal.invokers.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:215)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:131)
 at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
 at org.testng.TestRunner.privateRun(TestRunner.java:819)
 at org.testng.TestRunner.run(TestRunner.java:619)
@@ -99,21 +86,17 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logoutMethod -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Indian_Bank.ModuleMapping@7188af83]" started-at="2025-11-13T16:38:54 IST" name="closeBrowser" finished-at="2025-11-13T16:38:54 IST" duration-ms="0" status="SKIP">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeBrowser -->
       </class> <!-- Indian_Bank.ModuleMapping -->
       <class name="Indian_Bank.BranchCreation">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Indian_Bank.BranchCreation@2b40ff9c]" started-at="2025-11-13T16:37:52 IST" name="launchBrowser" finished-at="2025-11-13T16:37:58 IST" duration-ms="6104" status="PASS">
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Indian_Bank.BranchCreation@221a3fa4]" started-at="2025-11-13T18:43:30 IST" name="launchBrowser" finished-at="2025-11-13T18:43:36 IST" duration-ms="6574" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchBrowser -->
-        <test-method is-config="true" signature="loginMethod(java.lang.String)[pri:0, instance:Indian_Bank.BranchCreation@2b40ff9c]" started-at="2025-11-13T16:37:58 IST" name="loginMethod" finished-at="2025-11-13T16:38:13 IST" duration-ms="15272" status="PASS">
+        <test-method is-config="true" signature="loginMethod(java.lang.String)[pri:0, instance:Indian_Bank.BranchCreation@221a3fa4]" started-at="2025-11-13T18:43:36 IST" name="loginMethod" finished-at="2025-11-13T18:43:51 IST" duration-ms="14574" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -124,27 +107,83 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginMethod -->
-        <test-method signature="branchCreation()[pri:1, instance:Indian_Bank.BranchCreation@2b40ff9c]" started-at="2025-11-13T16:38:13 IST" name="branchCreation" finished-at="2025-11-13T16:38:28 IST" duration-ms="14909" status="PASS">
+        <test-method signature="branchCreation()[pri:1, instance:Indian_Bank.BranchCreation@221a3fa4]" started-at="2025-11-13T18:43:51 IST" name="branchCreation" finished-at="2025-11-13T18:44:06 IST" duration-ms="15211" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- branchCreation -->
-        <test-method is-config="true" signature="logoutMethod()[pri:0, instance:Indian_Bank.BranchCreation@2b40ff9c]" started-at="2025-11-13T16:38:28 IST" name="logoutMethod" finished-at="2025-11-13T16:38:29 IST" duration-ms="1126" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logoutMethod -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Indian_Bank.BranchCreation@2b40ff9c]" started-at="2025-11-13T16:38:29 IST" name="closeBrowser" finished-at="2025-11-13T16:38:30 IST" duration-ms="647" status="PASS">
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Indian_Bank.BranchCreation@221a3fa4]" started-at="2025-11-13T18:44:06 IST" name="closeBrowser" finished-at="2025-11-13T18:44:07 IST" duration-ms="555" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="logoutMethod()[pri:0, instance:Indian_Bank.BranchCreation@221a3fa4]" started-at="2025-11-13T18:44:07 IST" name="logoutMethod" finished-at="2025-11-13T18:44:07 IST" duration-ms="4" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchSessionException">
+            <message>
+              <![CDATA[Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [null, findElement {value=//img[@title='Logout'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\THAMIZ~1.S\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58272}, goog:processID: 20440, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58272/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [null, findElement {value=//img[@title='Logout'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\THAMIZ~1.S\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58272}, goog:processID: 20440, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58272/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:151)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy14.click(Unknown Source)
+at generic_Libraries.BaseClass.logoutMethod(BaseClass.java:148)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:393)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:326)
+at org.testng.internal.invokers.TestMethodWorker.invokeAfterClassConfigurations(TestMethodWorker.java:229)
+at org.testng.internal.invokers.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:215)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:131)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at org.testng.TestRunner.privateRun(TestRunner.java:819)
+at org.testng.TestRunner.run(TestRunner.java:619)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1228)
+at org.testng.TestNG.runSuites(TestNG.java:1134)
+at org.testng.TestNG.run(TestNG.java:1101)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logoutMethod -->
       </class> <!-- Indian_Bank.BranchCreation -->
     </test> <!-- BranchCreation -->
-    <test started-at="2025-11-13T16:38:54 IST" name="PlanSchl" finished-at="2025-11-13T16:40:11 IST" duration-ms="76776">
+    <test started-at="2025-11-13T18:44:29 IST" name="PlanSchl" finished-at="2025-11-13T18:45:36 IST" duration-ms="66692">
       <class name="Indian_Bank.PlanScreen">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Indian_Bank.PlanScreen@43f02ef2]" started-at="2025-11-13T16:38:54 IST" name="launchBrowser" finished-at="2025-11-13T16:38:59 IST" duration-ms="4862" status="PASS">
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Indian_Bank.PlanScreen@740fb309]" started-at="2025-11-13T18:44:29 IST" name="launchBrowser" finished-at="2025-11-13T18:44:34 IST" duration-ms="4691" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchBrowser -->
-        <test-method is-config="true" signature="loginMethod(java.lang.String)[pri:0, instance:Indian_Bank.PlanScreen@43f02ef2]" started-at="2025-11-13T16:38:59 IST" name="loginMethod" finished-at="2025-11-13T16:39:04 IST" duration-ms="5319" status="PASS">
+        <test-method is-config="true" signature="loginMethod(java.lang.String)[pri:0, instance:Indian_Bank.PlanScreen@740fb309]" started-at="2025-11-13T18:44:34 IST" name="loginMethod" finished-at="2025-11-13T18:44:39 IST" duration-ms="5284" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -155,67 +194,52 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginMethod -->
-        <test-method signature="plan()[pri:3, instance:Indian_Bank.PlanScreen@43f02ef2]" started-at="2025-11-13T16:39:04 IST" name="plan" finished-at="2025-11-13T16:39:10 IST" duration-ms="6017" status="PASS">
+        <test-method signature="plan()[pri:3, instance:Indian_Bank.PlanScreen@740fb309]" started-at="2025-11-13T18:44:39 IST" name="plan" finished-at="2025-11-13T18:44:44 IST" duration-ms="4926" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- plan -->
-        <test-method is-config="true" signature="logoutMethod()[pri:0, instance:Indian_Bank.PlanScreen@43f02ef2]" started-at="2025-11-13T16:39:10 IST" name="logoutMethod" finished-at="2025-11-13T16:39:12 IST" duration-ms="1508" status="FAIL">
-          <exception class="org.openqa.selenium.StaleElementReferenceException">
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Indian_Bank.PlanScreen@740fb309]" started-at="2025-11-13T18:44:44 IST" name="closeBrowser" finished-at="2025-11-13T18:44:45 IST" duration-ms="567" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="logoutMethod()[pri:0, instance:Indian_Bank.PlanScreen@740fb309]" started-at="2025-11-13T18:44:45 IST" name="logoutMethod" finished-at="2025-11-13T18:44:45 IST" duration-ms="2" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchSessionException">
             <message>
-              <![CDATA[stale element reference: stale element not found
-  (Session info: chrome=142.0.7444.135)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+              <![CDATA[Session ID is null. Using WebDriver after calling quit()?
 Build info: version: '4.25.0', revision: '8a8aea2337'
 System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [bfeaf3806eaccb354515382ec1f395f2, clickElement {id=f.E6454FBBCDA896FBC430A0F00D304562.d.A7E8512BFD231C4A8DF757B9EB33B61E.e.291}]
-Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\THAMIZ~1.S\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54213}, goog:processID: 24924, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54213/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (bfeaf3806eaccb354515382ec1f395f2)] -> xpath: //img[@title='Logout']]
-Session ID: bfeaf3806eaccb354515382ec1f395f2]]>
+Command: [null, findElement {value=//img[@title='Logout'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\THAMIZ~1.S\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58342}, goog:processID: 18048, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58342/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found
-  (Session info: chrome=142.0.7444.135)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+              <![CDATA[org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
 Build info: version: '4.25.0', revision: '8a8aea2337'
 System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [bfeaf3806eaccb354515382ec1f395f2, clickElement {id=f.E6454FBBCDA896FBC430A0F00D304562.d.A7E8512BFD231C4A8DF757B9EB33B61E.e.291}]
-Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\THAMIZ~1.S\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54213}, goog:processID: 24924, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54213/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (bfeaf3806eaccb354515382ec1f395f2)] -> xpath: //img[@title='Logout']]
-Session ID: bfeaf3806eaccb354515382ec1f395f2
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+Command: [null, findElement {value=//img[@title='Logout'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\THAMIZ~1.S\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58342}, goog:processID: 18048, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58342/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:151)
 at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
 at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
 at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-at jdk.proxy2/jdk.proxy2.$Proxy15.click(Unknown Source)
-at generic_Libraries.BaseClass.logoutMethod(BaseClass.java:146)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy14.click(Unknown Source)
+at generic_Libraries.BaseClass.logoutMethod(BaseClass.java:148)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
 at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:393)
 at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:326)
-at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:810)
-at org.testng.internal.invokers.TestInvoker.runAfterConfigurations(TestInvoker.java:779)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:755)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at org.testng.internal.invokers.TestMethodWorker.invokeAfterClassConfigurations(TestMethodWorker.java:229)
+at org.testng.internal.invokers.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:215)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:131)
 at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
 at org.testng.TestRunner.privateRun(TestRunner.java:819)
 at org.testng.TestRunner.run(TestRunner.java:619)
@@ -234,21 +258,17 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.StaleElementReferenceException -->
+          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logoutMethod -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Indian_Bank.PlanScreen@43f02ef2]" started-at="2025-11-13T16:39:12 IST" name="closeBrowser" finished-at="2025-11-13T16:39:12 IST" duration-ms="0" status="SKIP">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeBrowser -->
       </class> <!-- Indian_Bank.PlanScreen -->
       <class name="Indian_Bank.ScheduleAuthScreen">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Indian_Bank.ScheduleAuthScreen@6f204a1a]" started-at="2025-11-13T16:39:54 IST" name="launchBrowser" finished-at="2025-11-13T16:39:59 IST" duration-ms="4335" status="PASS">
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Indian_Bank.ScheduleAuthScreen@239a307b]" started-at="2025-11-13T18:45:22 IST" name="launchBrowser" finished-at="2025-11-13T18:45:26 IST" duration-ms="4428" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchBrowser -->
-        <test-method is-config="true" signature="loginMethod(java.lang.String)[pri:0, instance:Indian_Bank.ScheduleAuthScreen@6f204a1a]" started-at="2025-11-13T16:39:59 IST" name="loginMethod" finished-at="2025-11-13T16:40:04 IST" duration-ms="5226" status="PASS">
+        <test-method is-config="true" signature="loginMethod(java.lang.String)[pri:0, instance:Indian_Bank.ScheduleAuthScreen@239a307b]" started-at="2025-11-13T18:45:26 IST" name="loginMethod" finished-at="2025-11-13T18:45:31 IST" duration-ms="5158" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -259,67 +279,52 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginMethod -->
-        <test-method signature="ScheduleAuth()[pri:5, instance:Indian_Bank.ScheduleAuthScreen@6f204a1a]" started-at="2025-11-13T16:40:04 IST" name="ScheduleAuth" finished-at="2025-11-13T16:40:09 IST" duration-ms="4960" status="PASS">
+        <test-method signature="ScheduleAuth()[pri:5, instance:Indian_Bank.ScheduleAuthScreen@239a307b]" started-at="2025-11-13T18:45:31 IST" name="ScheduleAuth" finished-at="2025-11-13T18:45:35 IST" duration-ms="4258" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ScheduleAuth -->
-        <test-method is-config="true" signature="logoutMethod()[pri:0, instance:Indian_Bank.ScheduleAuthScreen@6f204a1a]" started-at="2025-11-13T16:40:09 IST" name="logoutMethod" finished-at="2025-11-13T16:40:11 IST" duration-ms="1870" status="FAIL">
-          <exception class="org.openqa.selenium.StaleElementReferenceException">
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Indian_Bank.ScheduleAuthScreen@239a307b]" started-at="2025-11-13T18:45:35 IST" name="closeBrowser" finished-at="2025-11-13T18:45:36 IST" duration-ms="526" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="logoutMethod()[pri:0, instance:Indian_Bank.ScheduleAuthScreen@239a307b]" started-at="2025-11-13T18:45:36 IST" name="logoutMethod" finished-at="2025-11-13T18:45:36 IST" duration-ms="2" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchSessionException">
             <message>
-              <![CDATA[stale element reference: stale element not found
-  (Session info: chrome=142.0.7444.135)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+              <![CDATA[Session ID is null. Using WebDriver after calling quit()?
 Build info: version: '4.25.0', revision: '8a8aea2337'
 System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [b01bf6ec77b1ef021231f4d4ae1ce7a9, clickElement {id=f.5721A867B16B11D6416248012CC8D425.d.BBD7A36C6636F3189DA35345E914EF45.e.360}]
-Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\THAMIZ~1.S\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54334}, goog:processID: 4072, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54334/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (b01bf6ec77b1ef021231f4d4ae1ce7a9)] -> xpath: //img[@title='Logout']]
-Session ID: b01bf6ec77b1ef021231f4d4ae1ce7a9]]>
+Command: [null, findElement {value=//img[@title='Logout'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\THAMIZ~1.S\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58435}, goog:processID: 12024, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58435/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found
-  (Session info: chrome=142.0.7444.135)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+              <![CDATA[org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
 Build info: version: '4.25.0', revision: '8a8aea2337'
 System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [b01bf6ec77b1ef021231f4d4ae1ce7a9, clickElement {id=f.5721A867B16B11D6416248012CC8D425.d.BBD7A36C6636F3189DA35345E914EF45.e.360}]
-Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\THAMIZ~1.S\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54334}, goog:processID: 4072, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54334/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (b01bf6ec77b1ef021231f4d4ae1ce7a9)] -> xpath: //img[@title='Logout']]
-Session ID: b01bf6ec77b1ef021231f4d4ae1ce7a9
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+Command: [null, findElement {value=//img[@title='Logout'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\THAMIZ~1.S\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58435}, goog:processID: 12024, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58435/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:151)
 at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
 at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
 at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-at jdk.proxy2/jdk.proxy2.$Proxy15.click(Unknown Source)
-at generic_Libraries.BaseClass.logoutMethod(BaseClass.java:146)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy14.click(Unknown Source)
+at generic_Libraries.BaseClass.logoutMethod(BaseClass.java:148)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
 at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:393)
 at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:326)
-at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:810)
-at org.testng.internal.invokers.TestInvoker.runAfterConfigurations(TestInvoker.java:779)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:755)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at org.testng.internal.invokers.TestMethodWorker.invokeAfterClassConfigurations(TestMethodWorker.java:229)
+at org.testng.internal.invokers.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:215)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:131)
 at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
 at org.testng.TestRunner.privateRun(TestRunner.java:819)
 at org.testng.TestRunner.run(TestRunner.java:619)
@@ -338,21 +343,17 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.StaleElementReferenceException -->
+          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logoutMethod -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Indian_Bank.ScheduleAuthScreen@6f204a1a]" started-at="2025-11-13T16:40:11 IST" name="closeBrowser" finished-at="2025-11-13T16:40:11 IST" duration-ms="0" status="SKIP">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeBrowser -->
       </class> <!-- Indian_Bank.ScheduleAuthScreen -->
       <class name="Indian_Bank.ScheduleScreen">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Indian_Bank.ScheduleScreen@2a8448fa]" started-at="2025-11-13T16:39:30 IST" name="launchBrowser" finished-at="2025-11-13T16:39:35 IST" duration-ms="5046" status="PASS">
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Indian_Bank.ScheduleScreen@43f02ef2]" started-at="2025-11-13T18:45:00 IST" name="launchBrowser" finished-at="2025-11-13T18:45:04 IST" duration-ms="4329" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchBrowser -->
-        <test-method is-config="true" signature="loginMethod(java.lang.String)[pri:0, instance:Indian_Bank.ScheduleScreen@2a8448fa]" started-at="2025-11-13T16:39:35 IST" name="loginMethod" finished-at="2025-11-13T16:39:40 IST" duration-ms="5606" status="PASS">
+        <test-method is-config="true" signature="loginMethod(java.lang.String)[pri:0, instance:Indian_Bank.ScheduleScreen@43f02ef2]" started-at="2025-11-13T18:45:04 IST" name="loginMethod" finished-at="2025-11-13T18:45:09 IST" duration-ms="5100" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -363,96 +364,52 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginMethod -->
-        <test-method signature="schedule()[pri:4, instance:Indian_Bank.ScheduleScreen@2a8448fa]" started-at="2025-11-13T16:39:40 IST" name="schedule" finished-at="2025-11-13T16:39:52 IST" duration-ms="11952" status="PASS">
+        <test-method signature="schedule()[pri:4, instance:Indian_Bank.ScheduleScreen@43f02ef2]" started-at="2025-11-13T18:45:09 IST" name="schedule" finished-at="2025-11-13T18:45:20 IST" duration-ms="11156" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- schedule -->
-        <test-method is-config="true" signature="logoutMethod()[pri:0, instance:Indian_Bank.ScheduleScreen@2a8448fa]" started-at="2025-11-13T16:39:52 IST" name="logoutMethod" finished-at="2025-11-13T16:39:53 IST" duration-ms="1078" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logoutMethod -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Indian_Bank.ScheduleScreen@2a8448fa]" started-at="2025-11-13T16:39:53 IST" name="closeBrowser" finished-at="2025-11-13T16:39:54 IST" duration-ms="947" status="PASS">
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Indian_Bank.ScheduleScreen@43f02ef2]" started-at="2025-11-13T18:45:20 IST" name="closeBrowser" finished-at="2025-11-13T18:45:22 IST" duration-ms="1344" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
-      </class> <!-- Indian_Bank.ScheduleScreen -->
-      <class name="Indian_Bank.PlanAuthScreen">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Indian_Bank.PlanAuthScreen@239a307b]" started-at="2025-11-13T16:39:12 IST" name="launchBrowser" finished-at="2025-11-13T16:39:17 IST" duration-ms="5093" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchBrowser -->
-        <test-method is-config="true" signature="loginMethod(java.lang.String)[pri:0, instance:Indian_Bank.PlanAuthScreen@239a307b]" started-at="2025-11-13T16:39:17 IST" name="loginMethod" finished-at="2025-11-13T16:39:23 IST" duration-ms="5886" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[HO]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginMethod -->
-        <test-method signature="planAuth()[pri:0, instance:Indian_Bank.PlanAuthScreen@239a307b]" started-at="2025-11-13T16:39:23 IST" name="planAuth" finished-at="2025-11-13T16:39:27 IST" duration-ms="4591" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- planAuth -->
-        <test-method is-config="true" signature="logoutMethod()[pri:0, instance:Indian_Bank.PlanAuthScreen@239a307b]" started-at="2025-11-13T16:39:27 IST" name="logoutMethod" finished-at="2025-11-13T16:39:30 IST" duration-ms="2411" status="FAIL">
-          <exception class="org.openqa.selenium.StaleElementReferenceException">
+        <test-method is-config="true" signature="logoutMethod()[pri:0, instance:Indian_Bank.ScheduleScreen@43f02ef2]" started-at="2025-11-13T18:45:22 IST" name="logoutMethod" finished-at="2025-11-13T18:45:22 IST" duration-ms="1" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchSessionException">
             <message>
-              <![CDATA[stale element reference: stale element not found
-  (Session info: chrome=142.0.7444.135)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+              <![CDATA[Session ID is null. Using WebDriver after calling quit()?
 Build info: version: '4.25.0', revision: '8a8aea2337'
 System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [5a16b4fda187264a27ebe32a2e1fc127, clickElement {id=f.6AF2C3D8FC64A67271934B8F4EF30ED1.d.B404BEE33C36AB31E089053242FCD673.e.251}]
-Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\THAMIZ~1.S\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54244}, goog:processID: 18996, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54244/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (5a16b4fda187264a27ebe32a2e1fc127)] -> xpath: //img[@title='Logout']]
-Session ID: 5a16b4fda187264a27ebe32a2e1fc127]]>
+Command: [null, findElement {value=//img[@title='Logout'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\THAMIZ~1.S\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58403}, goog:processID: 14548, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58403/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found
-  (Session info: chrome=142.0.7444.135)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+              <![CDATA[org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
 Build info: version: '4.25.0', revision: '8a8aea2337'
 System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [5a16b4fda187264a27ebe32a2e1fc127, clickElement {id=f.6AF2C3D8FC64A67271934B8F4EF30ED1.d.B404BEE33C36AB31E089053242FCD673.e.251}]
-Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\THAMIZ~1.S\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54244}, goog:processID: 18996, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54244/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (5a16b4fda187264a27ebe32a2e1fc127)] -> xpath: //img[@title='Logout']]
-Session ID: 5a16b4fda187264a27ebe32a2e1fc127
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+Command: [null, findElement {value=//img[@title='Logout'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\THAMIZ~1.S\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58403}, goog:processID: 14548, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58403/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:151)
 at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
 at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
 at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-at jdk.proxy2/jdk.proxy2.$Proxy15.click(Unknown Source)
-at generic_Libraries.BaseClass.logoutMethod(BaseClass.java:146)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy14.click(Unknown Source)
+at generic_Libraries.BaseClass.logoutMethod(BaseClass.java:148)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
 at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:393)
 at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:326)
-at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:810)
-at org.testng.internal.invokers.TestInvoker.runAfterConfigurations(TestInvoker.java:779)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:755)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at org.testng.internal.invokers.TestMethodWorker.invokeAfterClassConfigurations(TestMethodWorker.java:229)
+at org.testng.internal.invokers.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:215)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:131)
 at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
 at org.testng.TestRunner.privateRun(TestRunner.java:819)
 at org.testng.TestRunner.run(TestRunner.java:619)
@@ -471,14 +428,95 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.StaleElementReferenceException -->
+          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logoutMethod -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Indian_Bank.PlanAuthScreen@239a307b]" started-at="2025-11-13T16:39:30 IST" name="closeBrowser" finished-at="2025-11-13T16:39:30 IST" duration-ms="0" status="SKIP">
+      </class> <!-- Indian_Bank.ScheduleScreen -->
+      <class name="Indian_Bank.PlanAuthScreen">
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Indian_Bank.PlanAuthScreen@7bd7d6d6]" started-at="2025-11-13T18:44:45 IST" name="launchBrowser" finished-at="2025-11-13T18:44:49 IST" duration-ms="4696" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchBrowser -->
+        <test-method is-config="true" signature="loginMethod(java.lang.String)[pri:0, instance:Indian_Bank.PlanAuthScreen@7bd7d6d6]" started-at="2025-11-13T18:44:49 IST" name="loginMethod" finished-at="2025-11-13T18:44:55 IST" duration-ms="5119" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[HO]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginMethod -->
+        <test-method signature="planAuth()[pri:0, instance:Indian_Bank.PlanAuthScreen@7bd7d6d6]" started-at="2025-11-13T18:44:55 IST" name="planAuth" finished-at="2025-11-13T18:44:59 IST" duration-ms="4500" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- planAuth -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Indian_Bank.PlanAuthScreen@7bd7d6d6]" started-at="2025-11-13T18:44:59 IST" name="closeBrowser" finished-at="2025-11-13T18:45:00 IST" duration-ms="566" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="logoutMethod()[pri:0, instance:Indian_Bank.PlanAuthScreen@7bd7d6d6]" started-at="2025-11-13T18:45:00 IST" name="logoutMethod" finished-at="2025-11-13T18:45:00 IST" duration-ms="1" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchSessionException">
+            <message>
+              <![CDATA[Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [null, findElement {value=//img[@title='Logout'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\THAMIZ~1.S\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58374}, goog:processID: 23224, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58374/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [null, findElement {value=//img[@title='Logout'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\THAMIZ~1.S\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58374}, goog:processID: 23224, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58374/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:151)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy14.click(Unknown Source)
+at generic_Libraries.BaseClass.logoutMethod(BaseClass.java:148)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:393)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:326)
+at org.testng.internal.invokers.TestMethodWorker.invokeAfterClassConfigurations(TestMethodWorker.java:229)
+at org.testng.internal.invokers.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:215)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:131)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at org.testng.TestRunner.privateRun(TestRunner.java:819)
+at org.testng.TestRunner.run(TestRunner.java:619)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1228)
+at org.testng.TestNG.runSuites(TestNG.java:1134)
+at org.testng.TestNG.run(TestNG.java:1101)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logoutMethod -->
       </class> <!-- Indian_Bank.PlanAuthScreen -->
     </test> <!-- PlanSchl -->
   </suite> <!-- AuditSuite -->
