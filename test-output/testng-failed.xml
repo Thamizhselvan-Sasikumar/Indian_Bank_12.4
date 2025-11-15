@@ -4,42 +4,13 @@
   <test thread-count="5" name="AuditExecution(failed)">
     <parameter name="role" value="AUDITOR"/>
     <classes>
-      <class name="Indian_Bank.PlanScreen">
+      <class name="Indian_Bank.AuditObservation">
         <methods>
           <include name="launchBrowser"/>
-          <include name="logoutMethod"/>
-          <include name="closeBrowser"/>
-          <include name="plan"/>
+          <include name="Observation"/>
           <include name="loginMethod"/>
         </methods>
-      </class> <!-- Indian_Bank.PlanScreen -->
-      <class name="Indian_Bank.ScheduleAuthScreen">
-        <methods>
-          <include name="launchBrowser"/>
-          <include name="logoutMethod"/>
-          <include name="closeBrowser"/>
-          <include name="loginMethod"/>
-          <include name="ScheduleAuth"/>
-        </methods>
-      </class> <!-- Indian_Bank.ScheduleAuthScreen -->
-      <class name="Indian_Bank.PlanAuthScreen">
-        <methods>
-          <include name="launchBrowser"/>
-          <include name="planAuth"/>
-          <include name="closeBrowser"/>
-          <include name="logoutMethod"/>
-          <include name="loginMethod"/>
-        </methods>
-      </class> <!-- Indian_Bank.PlanAuthScreen -->
-      <class name="Indian_Bank.ScheduleScreen">
-        <methods>
-          <include name="launchBrowser"/>
-          <include name="logoutMethod"/>
-          <include name="closeBrowser"/>
-          <include name="schedule"/>
-          <include name="loginMethod"/>
-        </methods>
-      </class> <!-- Indian_Bank.ScheduleScreen -->
+      </class> <!-- Indian_Bank.AuditObservation -->
     </classes>
   </test> <!-- AuditExecution(failed) -->
 </suite> <!-- Failed suite [AuditSuite] -->

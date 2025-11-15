@@ -141,7 +141,7 @@ public class BaseClass {
 
 	}
 
-	@AfterClass
+	//@AfterClass
 	public void logoutMethod() {
 		
 		BaseClassPage bccp = new BaseClassPage(d);
@@ -159,7 +159,7 @@ public class BaseClass {
 		}
 	}
 
-	@AfterClass
+	//@AfterClass
 	public void closeBrowser() {
 
 		d.quit();
