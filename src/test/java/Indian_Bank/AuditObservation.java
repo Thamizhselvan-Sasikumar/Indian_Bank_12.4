@@ -41,7 +41,6 @@ public class AuditObservation extends BaseClass {
 				WebElement BranchCode = aop.getBranchSelection(row);
 				((JavascriptExecutor) d).executeScript("arguments[0].scrollIntoView(true);", BranchCode);
 				BranchCode.click();
-
 			}
 		}
 		// Audit

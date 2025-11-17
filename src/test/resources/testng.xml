@@ -24,8 +24,8 @@
     <classes>
         <!--<class name="Indian_Bank.AuditCommencement"/>-->
         <!--<class name="Indian_Bank.AccountSampling"/>-->
-        <class name="Indian_Bank.AuditObservation"/>
-        <!--<class name="Indian_Bank.ScheduleAuthScreen"/>-->
+        <!--<class name="Indian_Bank.AuditObservation"/>-->
+        <class name="Indian_Bank.AuditObservationAuth"/>
     </classes>
 </test> 
 
