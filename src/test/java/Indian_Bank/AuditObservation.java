@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -34,15 +35,18 @@ public class AuditObservation extends BaseClass {
 		aop.getBranchSearch().sendKeys(UtilityMethod.getProperty("BranchCode"));
 
 		// Branch Selection
-		List<WebElement> rows = aop.getBranchRow();
-
-		for (WebElement row : rows) {
-			if (row.getText().contains(UtilityMethod.getProperty("BranchCode"))) {
-				WebElement BranchCode = aop.getBranchSelection(row);
-				((JavascriptExecutor) d).executeScript("arguments[0].scrollIntoView(true);", BranchCode);
-				BranchCode.click();
-			}
-		}
+		clickBranchCode(UtilityMethod.getProperty("BranchCode"));
+		
+		/*
+		 * List<WebElement> rows = aop.getBranchRow();
+		 * 
+		 * for (WebElement row : rows) { if
+		 * (row.getText().contains(UtilityMethod.getProperty("BranchCode"))) {
+		 * WebElement BranchCode = aop.getBranchSelection(row); ((JavascriptExecutor)
+		 * d).executeScript("arguments[0].scrollIntoView(true);", BranchCode);
+		 * BranchCode.click(); } }
+		 */
+		
 		// Audit
 		aop.getAudit().click();
 
@@ -88,7 +92,7 @@ public class AuditObservation extends BaseClass {
 		// Select Checklist DropDown
 		List<WebElement> dropdown = aop.getChecklistDropdown();
 
-		int limit = Integer.parseInt(UtilityMethod.getProperty("ChecklistLimit"));
+		int limit = Integer.parseInt(UtilityMethod.getProperty("ChecklistLimitAcct"));
 
 		for (int i = 0; i < limit; i++) {
 			Thread.sleep(2000);
@@ -96,7 +100,7 @@ public class AuditObservation extends BaseClass {
 			wait.until(ExpectedConditions.visibilityOfAllElements(dd));
 			Select s = new Select(dd);
 			s.selectByValue("N");
-			aop.getAuditorComment().sendKeys(UtilityMethod.getProperty("Comments"));
+			aop.getAuditorComment().sendKeys(UtilityMethod.getProperty("CommentsAcct"));
 			aop.getChecklistSaveButton().click();
 		}
 
@@ -120,7 +124,7 @@ public class AuditObservation extends BaseClass {
 		// Select Checklist DropDown
 		List<WebElement> dropdown_GB = aop.getChecklistDropdown();
 
-		int limit_GB = Integer.parseInt(UtilityMethod.getProperty("ChecklistLimit"));
+		int limit_GB = Integer.parseInt(UtilityMethod.getProperty("ChecklistLimitGB"));
 
 		for (int i = 0; i < limit_GB; i++) {
 			Thread.sleep(2000);
@@ -128,7 +132,7 @@ public class AuditObservation extends BaseClass {
 			wait.until(ExpectedConditions.visibilityOfAllElements(dd_GB));
 			Select s1 = new Select(dd_GB);
 			s1.selectByValue("N");
-			aop.getAuditorComment().sendKeys(UtilityMethod.getProperty("Comments"));
+			aop.getAuditorComment().sendKeys(UtilityMethod.getProperty("CommentsGB"));
 			aop.getChecklistSaveButton().click();
 		}
 
@@ -138,13 +142,57 @@ public class AuditObservation extends BaseClass {
 		((JavascriptExecutor) d).executeScript("arguments[0].scrollIntoView(true);", MandatoryChecklist);
 		Select s2 = new Select(MandatoryChecklist);
 		s2.selectByValue("N");
-		aop.getAuditorComment().sendKeys(UtilityMethod.getProperty("Comments"));
+		aop.getAuditorComment().sendKeys(UtilityMethod.getProperty("CommentsGB"));
 		aop.getChecklistSaveButton().click();
 
 		// General Banking Save Button
 		WebElement overallSave = aop.getOverallSaveButton();
 		wait.until(ExpectedConditions.visibilityOfAllElements(overallSave));
 		overallSave.click();
+
+		// Back Button
+		WebElement Back = aop.getBackButton();
+		wait.until(ExpectedConditions.visibilityOf(Back));
+
+		for (int i = 0; i < 2; i++) {
+			aop.getBackButton().click();
+		}
+
+		// Zero Tolerance
+		/* WebElement AuditType = aop.getAuditType(); */
+
+		Select s1 = new Select(AuditType);
+		s1.selectByValue("ZT");
+
+		WebElement selectAll = aop.getSelectAll();
+		wait.until(ExpectedConditions.visibilityOf(selectAll));
+		// 1st Level Zero Tolerance Product Code Selection
+		for (int i = 0; i < 1; i++) {
+			aop.getSelectAll().click();
+			aop.getNextButton().click();
+		}
+
+		// Select Checklist DropDown
+		List<WebElement> dropdown_ZT = aop.getChecklistDropdown();
+
+		int limit_ZT = Integer.parseInt(UtilityMethod.getProperty("ChecklistLimitZT"));
+
+		for (int i = 0; i < limit_ZT; i++) {
+			Thread.sleep(2000);
+			WebElement dd_ZT = dropdown_ZT.get(i);
+			wait.until(ExpectedConditions.visibilityOfAllElements(dd_ZT));
+			Select s3 = new Select(dd_ZT);
+			s3.selectByValue("N");
+			Alert a = d.switchTo().alert();
+			a.accept();
+			aop.getAuditorComment().sendKeys(UtilityMethod.getProperty("CommentsZT"));
+			aop.getChecklistSaveButton().click();
+		}
+
+		// Zero Tolerance Save Button
+		WebElement SaveZT = aop.getOverallSaveButton();
+		wait.until(ExpectedConditions.visibilityOfAllElements(SaveZT));
+		SaveZT.click();
 
 	}
 

@@ -4,20 +4,19 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import pom_package.AuditObservationPage;
 import pom_package.BaseClassPage;
 
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,138 +31,206 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BaseClass {
 
-	public WebDriver d;
-	
-	public WebDriverWait  wait;
+    public WebDriver d;
+    public WebDriverWait wait;
 
-	@BeforeClass
-	public void launchBrowser() throws InterruptedException, IOException {
+    // =====================================================================
+    //  CLEAR COOKIES + CACHE + STORAGE
+    // =====================================================================
+    public void clearBrowserCookies() {
+        try {
+            // Cookies
+            d.manage().deleteAllCookies();
 
-		String browser = UtilityMethod.getProperty("Browser");
+            // LocalStorage + SessionStorage
+            JavascriptExecutor js = (JavascriptExecutor) d;
+            js.executeScript("window.localStorage.clear();");
+            js.executeScript("window.sessionStorage.clear();");
 
-		if (browser.equalsIgnoreCase("Chrome")) {
-			WebDriverManager.chromedriver().setup();
-			ChromeOptions op = new ChromeOptions();
-			op.setAcceptInsecureCerts(true);
-			d = new ChromeDriver(op);
-		} else if (browser.equalsIgnoreCase("Edge")) {
-			EdgeOptions op = new EdgeOptions();
-			op.setAcceptInsecureCerts(true);
-			d = new EdgeDriver(op);
-		} else if (browser.equalsIgnoreCase("FireFox")) {
-			FirefoxOptions op = new FirefoxOptions();
-			op.setAcceptInsecureCerts(true);
-			d = new FirefoxDriver(op);
-		}
+            d.navigate().refresh();
 
-		d.manage().window().maximize();
-		d.get(UtilityMethod.getProperty("URL"));
+        } catch (Exception e) {
+            System.out.println("Error clearing browser cache: " + e.getMessage());
+        }
+    }
 
-	}
+    // =====================================================================
+    //  BROWSER LAUNCH
+    // =====================================================================
+    @BeforeClass
+    public void launchBrowser() throws InterruptedException, IOException {
 
-	@BeforeMethod
-	@Parameters("role")
-	public void loginMethod(String role) throws InterruptedException, IOException {
+        String browser = UtilityMethod.getProperty("Browser");
 
-		BaseClassPage bccp = new BaseClassPage(d);
-		WebDriverWait wait = new WebDriverWait(d, Duration.ofSeconds(10));
+        if (browser.equalsIgnoreCase("Chrome")) {
+            WebDriverManager.chromedriver().setup();
+            ChromeOptions op = new ChromeOptions();
+            op.setAcceptInsecureCerts(true);
+            d = new ChromeDriver(op);
 
-		String username = "";
-		String password = "";
+        } else if (browser.equalsIgnoreCase("Edge")) {
+            EdgeOptions op = new EdgeOptions();
+            op.setAcceptInsecureCerts(true);
+            d = new EdgeDriver(op);
 
-		switch (role.toUpperCase()) {
-		case "NCS":
-			username = UtilityMethod.getProperty("SuperAdmin");
-			password = UtilityMethod.getProperty("SuperAdmiPassword");
-			break;
+        } else if (browser.equalsIgnoreCase("FireFox")) {
+            FirefoxOptions op = new FirefoxOptions();
+            op.setAcceptInsecureCerts(true);
+            d = new FirefoxDriver(op);
+        }
 
-		case "HO":
-			username = UtilityMethod.getProperty("HOUser");
-			password = UtilityMethod.getProperty("HOUserPassword");
-			break;
+        d.manage().window().maximize();
+        d.get(UtilityMethod.getProperty("URL"));
 
-		case "AUDITOR":
-			username = UtilityMethod.getProperty("AuditorUser");
-			password = UtilityMethod.getProperty("AuditorPassword");
-			break;
+        clearBrowserCookies();
+    }
 
-		default:
-			username = UtilityMethod.getProperty("Default");
-			password = UtilityMethod.getProperty("DefaultPassword");
-			break;
-		}
+    // =====================================================================
+    //  LOGIN METHOD
+    // =====================================================================
+    @BeforeMethod
+    @Parameters("role")
+    public void loginMethod(String role) throws InterruptedException, IOException {
 
-		bccp.getUserID().sendKeys(username);
-		bccp.getPassword().sendKeys(password);
-		bccp.getLoginButton().click();
-		Thread.sleep(2000);
-		
-		try {
-			Alert alert = d.switchTo().alert();
-			System.out.println("Alert text: " + alert.getText());
-			alert.accept(); // or alert.dismiss()
-		} catch (NoAlertPresentException e) {
-			// No alert appeared, continue
-			System.out.println("No alert present.");
-		}
+        BaseClassPage bccp = new BaseClassPage(d);
+        WebDriverWait wait = new WebDriverWait(d, Duration.ofSeconds(10));
 
-		Thread.sleep(2000);
+        String username = "";
+        String password = "";
 
-		try {
-			// Wait for all available modules to load
-			List<WebElement> Module = wait.until(ExpectedConditions
-					.presenceOfAllElementsLocatedBy(By.xpath("//div[@class='cls_ms_module_name_wrap']//p")));
+        switch (role.toUpperCase()) {
+            case "NCS":
+                username = UtilityMethod.getProperty("SuperAdmin");
+                password = UtilityMethod.getProperty("SuperAdmiPassword");
+                break;
 
-			boolean moduleFound = false;
+            case "HO":
+                username = UtilityMethod.getProperty("HOUser");
+                password = UtilityMethod.getProperty("HOUserPassword");
+                break;
 
-			for (WebElement m : Module) {
-				System.out.println("Found Module: " + m.getText());
+            case "AUDITOR":
+                username = UtilityMethod.getProperty("AuditorUser");
+                password = UtilityMethod.getProperty("AuditorPassword");
+                break;
 
-				if (m.getText().equalsIgnoreCase(UtilityMethod.getProperty("Module"))) {
-					wait.until(ExpectedConditions.elementToBeClickable(m)).click();
-					System.out.println("Clicked on module: " + m.getText());
-					moduleFound = true;
-					break;
-				}
-			}
+            default:
+                username = UtilityMethod.getProperty("Default");
+                password = UtilityMethod.getProperty("DefaultPassword");
+                break;
+        }
 
-			if (!moduleFound) {
-				System.out.println("Module not available. Skipping module selection.");
-			}
+        bccp.getUserID().sendKeys(username);
+        bccp.getPassword().sendKeys(password);
+        bccp.getLoginButton().click();
+        Thread.sleep(2000);
 
-		} catch (NoSuchElementException e) {
-			System.out.println("No module elements found. Skipping module selection.");
-		} catch (ElementClickInterceptedException e) {
-			System.out.println("Unable to click module (overlay or blocked). Skipping module selection.");
-		} catch (Exception e) {
-			System.out.println("Unexpected error during module selection: " + e.getMessage());
-		}
+        try {
+            Alert alert = d.switchTo().alert();
+            System.out.println("Alert Text: " + alert.getText());
+            alert.accept();
+        } catch (NoAlertPresentException e) {
+            System.out.println("No alert shown during login.");
+        }
 
-	}
+        Thread.sleep(2000);
 
-	//@AfterClass
-	public void logoutMethod() {
-		
-		BaseClassPage bccp = new BaseClassPage(d);
-		bccp.getLogout().click();
-		
-		
-		
-		try {
-			Alert alert = d.switchTo().alert();
-			System.out.println("Alert text: " + alert.getText());
-			alert.accept(); // or alert.dismiss()
-		} catch (NoAlertPresentException e) {
-			// No alert appeared, continue
-			System.out.println("No alert present.");
-		}
-	}
+        // MODULE SELECTION
+        try {
+            List<WebElement> modules = wait.until(
+                ExpectedConditions.presenceOfAllElementsLocatedBy(
+                    By.xpath("//div[@class='cls_ms_module_name_wrap']//p")
+                )
+            );
 
-	//@AfterClass
-	public void closeBrowser() {
+            for (WebElement m : modules) {
+                if (m.getText().equalsIgnoreCase(UtilityMethod.getProperty("Module"))) {
+                    wait.until(ExpectedConditions.elementToBeClickable(m)).click();
+                    System.out.println("Clicked module: " + m.getText());
+                    break;
+                }
+            }
 
-		d.quit();
+        } catch (Exception e) {
+            System.out.println("Module selection skipped: " + e.getMessage());
+        }
+    }
 
-	}
+    // =====================================================================
+    //  STABLE BRANCH CODE CLICK METHOD  (✨ KEY FEATURE)
+    // =====================================================================
+    public void clickBranchCode(String branchCode) {
+    	
+    	AuditObservationPage aop = new AuditObservationPage(d);
 
+        WebDriverWait wait = new WebDriverWait(d, Duration.ofSeconds(15));
+
+        for (int retry = 0; retry < 3; retry++) {
+            try {
+				
+				  List<WebElement> rows = wait.until(
+				  ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(
+				  "//tr[contains(@class,'Rows')]")));
+				 
+                for (WebElement row : rows) {
+                    if (row.getText().contains(branchCode)) {
+
+                        WebElement branchElement = aop.getBranchSelection(row);
+
+                        wait.until(ExpectedConditions.visibilityOf(branchElement));
+                        wait.until(ExpectedConditions.elementToBeClickable(branchElement));
+
+                        // Scroll
+                        ((JavascriptExecutor) d).executeScript(
+                                "arguments[0].scrollIntoView(true);", branchElement);
+                        Thread.sleep(300);
+
+                        try {
+                            branchElement.click();
+                        } catch (Exception e) {
+                            ((JavascriptExecutor) d).executeScript(
+                                    "arguments[0].click();", branchElement);
+                        }
+
+                        System.out.println("Clicked Branch Code: " + branchCode);
+                        return;
+                    }
+                }
+
+                System.out.println("Branch not found in this retry...");
+
+            } catch (Exception e) {
+                System.out.println("Retry " + retry + " failed: " + e.getMessage());
+            }
+        }
+
+        throw new RuntimeException("Branch Code NOT CLICKED even after 3 retries: " + branchCode);
+    }
+
+    // =====================================================================
+    //  LOGOUT
+    // =====================================================================
+    @AfterClass
+    public void logoutMethod() {
+        try {
+            BaseClassPage bccp = new BaseClassPage(d);
+            bccp.getLogout().click();
+
+            try {
+                Alert alert = d.switchTo().alert();
+                alert.accept();
+            } catch (NoAlertPresentException e) {}
+
+        } catch (Exception e) {
+            System.out.println("Logout not executed: " + e.getMessage());
+        }
+    }
+
+    // =====================================================================
+    //  CLOSE BROWSER
+    // =====================================================================
+    @AfterClass
+    public void closeBrowser() {
+        d.quit();
+    }
 }

@@ -22,8 +22,8 @@ public class AuditObservationAuthPage {
 		return BranchRows;
 	}
 
-	public WebElement getBranchRow(WebElement row) {
-		return row.findElement(By.xpath(".//a[@class='userhometablehref']"));
+	public WebElement getBranchRow(WebElement Authrow) {
+		return Authrow.findElement(By.xpath(".//a[@class='userhometablehref']"));
 	}
 
 	public WebElement getBranchRow() {

@@ -154,5 +154,14 @@ public class AuditObservationPage {
 	
 	@FindBy(xpath = "//select[@id='irrSelect53']")
 	private WebElement MandatoryChecklist;
+	
+	public WebElement getBackButton() {
+		return BackButton;
+	}
+
+	@FindBy(xpath = "//button[@id='backbtn']")
+	private WebElement BackButton;
+	
+	
 
 }
