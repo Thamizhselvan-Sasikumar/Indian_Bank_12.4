@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="AuditSuite" verbose="1">
 
-	<test name="BranchCreation">
+<!--	<test name="BranchCreation">
 		<parameter name="role" value="NCS" />
 		<classes>
 			<class name="Indian_Bank.BranchCreation" />
@@ -18,14 +18,16 @@
 			<class name="Indian_Bank.ScheduleAuthScreen" />
 		</classes>
 	</test>
-
+-->
 	<test name="AuditExecution">
 		<parameter name="role" value="AUDITOR" />
 		<classes>
-			<class name="Indian_Bank.AuditCommencement" />
+			<!--<class name="Indian_Bank.AuditCommencement" />
 			<class name="Indian_Bank.AccountSampling" />
 			<class name="Indian_Bank.AuditObservation" />
-			<class name="Indian_Bank.AuditObservationAuth" />
+			<class name="Indian_Bank.AuditObservationAuth" />-->
+			<!--<class name="Indian_Bank.JLScoreSheet" />-->
+			<class name="Indian_Bank.ExecutiveSummary" />
 		</classes>
 	</test>
 

@@ -1,147 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="10" passed="10" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-21T16:00:52 IST" name="AuditSuite" finished-at="2025-11-21T16:04:45 IST" duration-ms="233521">
+  <suite started-at="2025-11-21T18:39:53 IST" name="AuditSuite" finished-at="2025-11-21T18:40:08 IST" duration-ms="15015">
     <groups>
     </groups>
-    <test started-at="2025-11-21T16:00:52 IST" name="BranchCreation" finished-at="2025-11-21T16:01:51 IST" duration-ms="59778">
-      <class name="Indian_Bank.ModuleMapping">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Indian_Bank.ModuleMapping@4d1c005e]" started-at="2025-11-21T16:01:28 IST" name="launchBrowser" finished-at="2025-11-21T16:01:34 IST" duration-ms="6087" status="PASS">
+    <test started-at="2025-11-21T18:39:53 IST" name="AuditExecution" finished-at="2025-11-21T18:40:08 IST" duration-ms="15015">
+      <class name="Indian_Bank.ExecutiveSummary">
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Indian_Bank.ExecutiveSummary@5890e879]" started-at="2025-11-21T18:39:53 IST" name="launchBrowser" finished-at="2025-11-21T18:39:59 IST" duration-ms="6074" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchBrowser -->
-        <test-method is-config="true" signature="loginMethod(java.lang.String)[pri:0, instance:Indian_Bank.ModuleMapping@4d1c005e]" started-at="2025-11-21T16:01:34 IST" name="loginMethod" finished-at="2025-11-21T16:01:49 IST" duration-ms="14450" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[NCS]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginMethod -->
-        <test-method signature="modulemapping()[pri:2, instance:Indian_Bank.ModuleMapping@4d1c005e]" started-at="2025-11-21T16:01:49 IST" name="modulemapping" finished-at="2025-11-21T16:01:51 IST" duration-ms="2802" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- modulemapping -->
-      </class> <!-- Indian_Bank.ModuleMapping -->
-      <class name="Indian_Bank.BranchCreation">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Indian_Bank.BranchCreation@31ea9581]" started-at="2025-11-21T16:00:52 IST" name="launchBrowser" finished-at="2025-11-21T16:00:59 IST" duration-ms="7009" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchBrowser -->
-        <test-method is-config="true" signature="loginMethod(java.lang.String)[pri:0, instance:Indian_Bank.BranchCreation@31ea9581]" started-at="2025-11-21T16:00:59 IST" name="loginMethod" finished-at="2025-11-21T16:01:13 IST" duration-ms="14508" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[NCS]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginMethod -->
-        <test-method signature="branchCreation()[pri:1, instance:Indian_Bank.BranchCreation@31ea9581]" started-at="2025-11-21T16:01:13 IST" name="branchCreation" finished-at="2025-11-21T16:01:28 IST" duration-ms="14820" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- branchCreation -->
-      </class> <!-- Indian_Bank.BranchCreation -->
-    </test> <!-- BranchCreation -->
-    <test started-at="2025-11-21T16:01:52 IST" name="PlanSchl" finished-at="2025-11-21T16:03:12 IST" duration-ms="79918">
-      <class name="Indian_Bank.PlanScreen">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Indian_Bank.PlanScreen@710636b0]" started-at="2025-11-21T16:01:52 IST" name="launchBrowser" finished-at="2025-11-21T16:01:59 IST" duration-ms="7101" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchBrowser -->
-        <test-method is-config="true" signature="loginMethod(java.lang.String)[pri:0, instance:Indian_Bank.PlanScreen@710636b0]" started-at="2025-11-21T16:01:59 IST" name="loginMethod" finished-at="2025-11-21T16:02:04 IST" duration-ms="5319" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[HO]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginMethod -->
-        <test-method signature="plan()[pri:3, instance:Indian_Bank.PlanScreen@710636b0]" started-at="2025-11-21T16:02:04 IST" name="plan" finished-at="2025-11-21T16:02:09 IST" duration-ms="4801" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- plan -->
-      </class> <!-- Indian_Bank.PlanScreen -->
-      <class name="Indian_Bank.ScheduleAuthScreen">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Indian_Bank.ScheduleAuthScreen@4e5ed836]" started-at="2025-11-21T16:02:51 IST" name="launchBrowser" finished-at="2025-11-21T16:03:02 IST" duration-ms="10364" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchBrowser -->
-        <test-method is-config="true" signature="loginMethod(java.lang.String)[pri:0, instance:Indian_Bank.ScheduleAuthScreen@4e5ed836]" started-at="2025-11-21T16:03:02 IST" name="loginMethod" finished-at="2025-11-21T16:03:07 IST" duration-ms="5165" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[HO]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginMethod -->
-        <test-method signature="ScheduleAuth()[pri:5, instance:Indian_Bank.ScheduleAuthScreen@4e5ed836]" started-at="2025-11-21T16:03:07 IST" name="ScheduleAuth" finished-at="2025-11-21T16:03:12 IST" duration-ms="4652" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ScheduleAuth -->
-      </class> <!-- Indian_Bank.ScheduleAuthScreen -->
-      <class name="Indian_Bank.ScheduleScreen">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Indian_Bank.ScheduleScreen@2ab4bc72]" started-at="2025-11-21T16:02:27 IST" name="launchBrowser" finished-at="2025-11-21T16:02:34 IST" duration-ms="6727" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchBrowser -->
-        <test-method is-config="true" signature="loginMethod(java.lang.String)[pri:0, instance:Indian_Bank.ScheduleScreen@2ab4bc72]" started-at="2025-11-21T16:02:34 IST" name="loginMethod" finished-at="2025-11-21T16:02:39 IST" duration-ms="5525" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[HO]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginMethod -->
-        <test-method signature="schedule()[pri:4, instance:Indian_Bank.ScheduleScreen@2ab4bc72]" started-at="2025-11-21T16:02:39 IST" name="schedule" finished-at="2025-11-21T16:02:51 IST" duration-ms="11970" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- schedule -->
-      </class> <!-- Indian_Bank.ScheduleScreen -->
-      <class name="Indian_Bank.PlanAuthScreen">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Indian_Bank.PlanAuthScreen@3de8f619]" started-at="2025-11-21T16:02:09 IST" name="launchBrowser" finished-at="2025-11-21T16:02:16 IST" duration-ms="6940" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchBrowser -->
-        <test-method is-config="true" signature="loginMethod(java.lang.String)[pri:0, instance:Indian_Bank.PlanAuthScreen@3de8f619]" started-at="2025-11-21T16:02:16 IST" name="loginMethod" finished-at="2025-11-21T16:02:22 IST" duration-ms="5909" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[HO]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginMethod -->
-        <test-method signature="planAuth()[pri:0, instance:Indian_Bank.PlanAuthScreen@3de8f619]" started-at="2025-11-21T16:02:22 IST" name="planAuth" finished-at="2025-11-21T16:02:27 IST" duration-ms="5409" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- planAuth -->
-      </class> <!-- Indian_Bank.PlanAuthScreen -->
-    </test> <!-- PlanSchl -->
-    <test started-at="2025-11-21T16:03:12 IST" name="AuditExecution" finished-at="2025-11-21T16:04:45 IST" duration-ms="93590">
-      <class name="Indian_Bank.AuditCommencement">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Indian_Bank.AuditCommencement@5745ca0e]" started-at="2025-11-21T16:03:12 IST" name="launchBrowser" finished-at="2025-11-21T16:03:18 IST" duration-ms="6804" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchBrowser -->
-        <test-method is-config="true" signature="loginMethod(java.lang.String)[pri:0, instance:Indian_Bank.AuditCommencement@5745ca0e]" started-at="2025-11-21T16:03:18 IST" name="loginMethod" finished-at="2025-11-21T16:03:24 IST" duration-ms="5745" status="PASS">
+        <test-method is-config="true" signature="loginMethod(java.lang.String)[pri:0, instance:Indian_Bank.ExecutiveSummary@5890e879]" started-at="2025-11-21T18:39:59 IST" name="loginMethod" finished-at="2025-11-21T18:40:04 IST" duration-ms="5355" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -152,74 +22,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginMethod -->
-        <test-method signature="Commencement()[pri:0, instance:Indian_Bank.AuditCommencement@5745ca0e]" started-at="2025-11-21T16:03:24 IST" name="Commencement" finished-at="2025-11-21T16:03:29 IST" duration-ms="4692" status="PASS">
+        <test-method signature="ExecutiveSummaryTest()[pri:0, instance:Indian_Bank.ExecutiveSummary@5890e879]" started-at="2025-11-21T18:40:04 IST" name="ExecutiveSummaryTest" finished-at="2025-11-21T18:40:08 IST" duration-ms="3527" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Commencement -->
-      </class> <!-- Indian_Bank.AuditCommencement -->
-      <class name="Indian_Bank.AccountSampling">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Indian_Bank.AccountSampling@3ad83a66]" started-at="2025-11-21T16:03:29 IST" name="launchBrowser" finished-at="2025-11-21T16:03:39 IST" duration-ms="9990" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchBrowser -->
-        <test-method is-config="true" signature="loginMethod(java.lang.String)[pri:0, instance:Indian_Bank.AccountSampling@3ad83a66]" started-at="2025-11-21T16:03:39 IST" name="loginMethod" finished-at="2025-11-21T16:03:44 IST" duration-ms="5461" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[AUDITOR]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginMethod -->
-        <test-method signature="Sampling()[pri:0, instance:Indian_Bank.AccountSampling@3ad83a66]" started-at="2025-11-21T16:03:44 IST" name="Sampling" finished-at="2025-11-21T16:03:49 IST" duration-ms="4714" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Sampling -->
-      </class> <!-- Indian_Bank.AccountSampling -->
-      <class name="Indian_Bank.AuditObservation">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Indian_Bank.AuditObservation@3cce5371]" started-at="2025-11-21T16:03:49 IST" name="launchBrowser" finished-at="2025-11-21T16:03:57 IST" duration-ms="7601" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchBrowser -->
-        <test-method is-config="true" signature="loginMethod(java.lang.String)[pri:0, instance:Indian_Bank.AuditObservation@3cce5371]" started-at="2025-11-21T16:03:57 IST" name="loginMethod" finished-at="2025-11-21T16:04:02 IST" duration-ms="5374" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[AUDITOR]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginMethod -->
-        <test-method signature="Observation()[pri:0, instance:Indian_Bank.AuditObservation@3cce5371]" started-at="2025-11-21T16:04:02 IST" name="Observation" finished-at="2025-11-21T16:04:31 IST" duration-ms="28606" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Observation -->
-      </class> <!-- Indian_Bank.AuditObservation -->
-      <class name="Indian_Bank.AuditObservationAuth">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Indian_Bank.AuditObservationAuth@17bffc17]" started-at="2025-11-21T16:04:31 IST" name="launchBrowser" finished-at="2025-11-21T16:04:37 IST" duration-ms="6025" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchBrowser -->
-        <test-method is-config="true" signature="loginMethod(java.lang.String)[pri:0, instance:Indian_Bank.AuditObservationAuth@17bffc17]" started-at="2025-11-21T16:04:37 IST" name="loginMethod" finished-at="2025-11-21T16:04:42 IST" duration-ms="5421" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[AUDITOR]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginMethod -->
-        <test-method signature="ObservationAuth()[pri:0, instance:Indian_Bank.AuditObservationAuth@17bffc17]" started-at="2025-11-21T16:04:42 IST" name="ObservationAuth" finished-at="2025-11-21T16:04:45 IST" duration-ms="3139" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ObservationAuth -->
-      </class> <!-- Indian_Bank.AuditObservationAuth -->
+        </test-method> <!-- ExecutiveSummaryTest -->
+      </class> <!-- Indian_Bank.ExecutiveSummary -->
     </test> <!-- AuditExecution -->
   </suite> <!-- AuditSuite -->
 </testng-results>

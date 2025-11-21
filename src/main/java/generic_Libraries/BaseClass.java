@@ -209,6 +209,7 @@ public class BaseClass {
 	public void logoutMethod() {
 		try {
 			BaseClassPage bccp = new BaseClassPage(d);
+			wait.until(ExpectedConditions.visibilityOf(bccp.getLogout()));
 			bccp.getLogout().click();
 
 			try {
