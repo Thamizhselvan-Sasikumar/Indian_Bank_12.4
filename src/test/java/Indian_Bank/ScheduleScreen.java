@@ -17,12 +17,11 @@ import generic_Libraries.UtilityMethod;
 import pom_package.ScheduleScreenPage;
 
 public class ScheduleScreen extends BaseClass {
-	
+
 	@Test(priority = 4)
 	public void schedule() throws InterruptedException, IOException {
 
 		ScheduleScreenPage ssp = new ScheduleScreenPage(d);
-
 
 		ssp.getAudit().click();
 		ssp.getPlanSch().click();
@@ -59,7 +58,7 @@ public class ScheduleScreen extends BaseClass {
 		// Check Box
 		for (WebElement row : rows) {
 			if (row.getText().contains(UtilityMethod.getProperty("BranchCode"))) {
-				WebElement CheckBox =ssp.getCheckBox(row);
+				WebElement CheckBox = ssp.getCheckBox(row);
 				((JavascriptExecutor) d).executeScript("arguments[0].scrollIntoView(true);", CheckBox);
 				CheckBox.click();
 			}
@@ -68,7 +67,7 @@ public class ScheduleScreen extends BaseClass {
 		// Team Lead Icon
 		for (WebElement row : rows) {
 			if (row.getText().contains(UtilityMethod.getProperty("BranchCode"))) {
-				WebElement TeamLeadIcon =ssp.getTLIcon(row);
+				WebElement TeamLeadIcon = ssp.getTLIcon(row);
 				((JavascriptExecutor) d).executeScript("arguments[0].scrollIntoView(true);", TeamLeadIcon);
 				TeamLeadIcon.click();
 			}

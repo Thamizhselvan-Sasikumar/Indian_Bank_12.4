@@ -45,6 +45,7 @@ public class ModuleMapping extends BaseClass {
 
 		for (WebElement row : rows) {
 			if (row.getText().contains(UtilityMethod.getProperty("Module"))) {
+				System.out.println(row.getText());
 				WebElement CheckBox = mmp.getCheckBox(row);
 				((JavascriptExecutor) d).executeScript("arguments[0].scrollIntoView(true);", CheckBox);
 				CheckBox.click();

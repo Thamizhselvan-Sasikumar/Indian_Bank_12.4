@@ -36,7 +36,7 @@ public class AuditObservation extends BaseClass {
 
 		// Branch Selection
 		clickBranchCode(UtilityMethod.getProperty("BranchCode"));
-		
+
 		/*
 		 * List<WebElement> rows = aop.getBranchRow();
 		 * 
@@ -44,10 +44,15 @@ public class AuditObservation extends BaseClass {
 		 * (row.getText().contains(UtilityMethod.getProperty("BranchCode"))) {
 		 * WebElement BranchCode = aop.getBranchSelection(row); ((JavascriptExecutor)
 		 * d).executeScript("arguments[0].scrollIntoView(true);", BranchCode);
-		 * BranchCode.click(); } }
+		 * BranchCode.click(); break; }
+		 * 
+		 * }
 		 */
 		
+		System.out.println("Branch selected");
+
 		// Audit
+		wait.until(ExpectedConditions.visibilityOf(aop.getAudit()));
 		aop.getAudit().click();
 
 		// Audit Execution
@@ -108,6 +113,8 @@ public class AuditObservation extends BaseClass {
 		WebElement Save = aop.getOverallSaveButton();
 		wait.until(ExpectedConditions.visibilityOfAllElements(Save));
 		Save.click();
+		
+		System.out.println("Account has been Saved");
 
 		// General Banking
 		WebElement AuditType = aop.getAuditType();
@@ -149,28 +156,29 @@ public class AuditObservation extends BaseClass {
 		WebElement overallSave = aop.getOverallSaveButton();
 		wait.until(ExpectedConditions.visibilityOfAllElements(overallSave));
 		overallSave.click();
+		
+		System.out.println("General Banking Saved");
 
-		// Back Button
-		WebElement Back = aop.getBackButton();
-		wait.until(ExpectedConditions.visibilityOf(Back));
+		// Zero Tolerance Section
+		// Audit
+		wait.until(ExpectedConditions.visibilityOfAllElements(aop.getAudit()));
+		aop.getAudit().click();
 
-		for (int i = 0; i < 2; i++) {
-			aop.getBackButton().click();
-		}
+		// Audit Execution
+		aop.getAuditExecution().click();
 
-		// Zero Tolerance
-		/* WebElement AuditType = aop.getAuditType(); */
+		// Audit Observation
+		aop.getAuditObservationMenu().click();
 
-		Select s1 = new Select(AuditType);
+		WebElement AuditType_ZT = aop.getAuditType();
+		Select s1 = new Select(AuditType_ZT);
 		s1.selectByValue("ZT");
 
-		WebElement selectAll = aop.getSelectAll();
-		wait.until(ExpectedConditions.visibilityOf(selectAll));
-		// 1st Level Zero Tolerance Product Code Selection
-		for (int i = 0; i < 1; i++) {
-			aop.getSelectAll().click();
-			aop.getNextButton().click();
-		}
+		wait.until(ExpectedConditions.visibilityOfAllElements(aop.getSelectAll()));
+		aop.getSelectAll().click();
+		
+		wait.until(ExpectedConditions.visibilityOfAllElements(aop.getNextButton()));
+		aop.getNextButton().click();
 
 		// Select Checklist DropDown
 		List<WebElement> dropdown_ZT = aop.getChecklistDropdown();

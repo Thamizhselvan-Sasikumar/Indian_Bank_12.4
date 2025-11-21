@@ -8,20 +8,9 @@
         <methods>
           <include name="launchBrowser"/>
           <include name="Observation"/>
-          <include name="logoutMethod"/>
-          <include name="closeBrowser"/>
           <include name="loginMethod"/>
         </methods>
       </class> <!-- Indian_Bank.AuditObservation -->
-      <class name="Indian_Bank.AuditObservationAuth">
-        <methods>
-          <include name="launchBrowser"/>
-          <include name="ObservationAuth"/>
-          <include name="logoutMethod"/>
-          <include name="closeBrowser"/>
-          <include name="loginMethod"/>
-        </methods>
-      </class> <!-- Indian_Bank.AuditObservationAuth -->
     </classes>
   </test> <!-- AuditExecution(failed) -->
 </suite> <!-- Failed suite [AuditSuite] -->

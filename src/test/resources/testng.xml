@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="AuditSuite" verbose="1">
 
-<!--<test name="BranchCreation">
-    <parameter name="role" value="NCS"/>
-    <classes>
-        <class name="Indian_Bank.BranchCreation"/>
-        <class name="Indian_Bank.ModuleMapping"/>
-    </classes>
-</test>
+	<test name="BranchCreation">
+		<parameter name="role" value="NCS" />
+		<classes>
+			<class name="Indian_Bank.BranchCreation" />
+			<class name="Indian_Bank.ModuleMapping" />
+		</classes>
+	</test>
 
-<test name="PlanSchl">
-    <parameter name="role" value="HO"/>
-    <classes>
-        <class name="Indian_Bank.PlanScreen"/>
-        <class name="Indian_Bank.PlanAuthScreen"/>
-        <class name="Indian_Bank.ScheduleScreen"/>
-        <class name="Indian_Bank.ScheduleAuthScreen"/>
-    </classes>
-</test>-->
+	<test name="PlanSchl">
+		<parameter name="role" value="HO" />
+		<classes>
+			<class name="Indian_Bank.PlanScreen" />
+			<class name="Indian_Bank.PlanAuthScreen" />
+			<class name="Indian_Bank.ScheduleScreen" />
+			<class name="Indian_Bank.ScheduleAuthScreen" />
+		</classes>
+	</test>
 
-<test name="AuditExecution">
-    <parameter name="role" value="AUDITOR"/>
-    <classes>
-        <!--<class name="Indian_Bank.AuditCommencement"/>-->
-        <!--<class name="Indian_Bank.AccountSampling"/>-->
-        <class name="Indian_Bank.AuditObservation"/>
-        <class name="Indian_Bank.AuditObservationAuth"/>
-    </classes>
-</test> 
-
+	<test name="AuditExecution">
+		<parameter name="role" value="AUDITOR" />
+		<classes>
+			<class name="Indian_Bank.AuditCommencement" />
+			<class name="Indian_Bank.AccountSampling" />
+			<class name="Indian_Bank.AuditObservation" />
+			<class name="Indian_Bank.AuditObservationAuth" />
+		</classes>
+	</test>
 
 </suite>

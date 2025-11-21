@@ -8,6 +8,7 @@ import pom_package.AuditObservationPage;
 import pom_package.BaseClassPage;
 
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 
 import java.io.IOException;
@@ -31,206 +32,201 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BaseClass {
 
-    public WebDriver d;
-    public WebDriverWait wait;
+	public WebDriver d;
+	public WebDriverWait wait;
 
-    // =====================================================================
-    //  CLEAR COOKIES + CACHE + STORAGE
-    // =====================================================================
-    public void clearBrowserCookies() {
-        try {
-            // Cookies
-            d.manage().deleteAllCookies();
+	// =====================================================================
+	// CLEAR COOKIES + CACHE + STORAGE
+	// =====================================================================
+	public void clearBrowserCookies() {
+		try {
+			// Cookies
+			d.manage().deleteAllCookies();
 
-            // LocalStorage + SessionStorage
-            JavascriptExecutor js = (JavascriptExecutor) d;
-            js.executeScript("window.localStorage.clear();");
-            js.executeScript("window.sessionStorage.clear();");
+			// LocalStorage + SessionStorage
+			JavascriptExecutor js = (JavascriptExecutor) d;
+			js.executeScript("window.localStorage.clear();");
+			js.executeScript("window.sessionStorage.clear();");
 
-            d.navigate().refresh();
+			d.navigate().refresh();
 
-        } catch (Exception e) {
-            System.out.println("Error clearing browser cache: " + e.getMessage());
-        }
-    }
+		} catch (Exception e) {
+			System.out.println("Error clearing browser cache: " + e.getMessage());
+		}
+	}
 
-    // =====================================================================
-    //  BROWSER LAUNCH
-    // =====================================================================
-    @BeforeClass
-    public void launchBrowser() throws InterruptedException, IOException {
+	// =====================================================================
+	// BROWSER LAUNCH
+	// =====================================================================
+	@BeforeClass
+	public void launchBrowser() throws InterruptedException, IOException {
 
-        String browser = UtilityMethod.getProperty("Browser");
+		String browser = UtilityMethod.getProperty("Browser");
 
-        if (browser.equalsIgnoreCase("Chrome")) {
-            WebDriverManager.chromedriver().setup();
-            ChromeOptions op = new ChromeOptions();
-            op.setAcceptInsecureCerts(true);
-            d = new ChromeDriver(op);
+		if (browser.equalsIgnoreCase("Chrome")) {
+			WebDriverManager.chromedriver().setup();
+			ChromeOptions op = new ChromeOptions();
+			op.setAcceptInsecureCerts(true);
+			d = new ChromeDriver(op);
 
-        } else if (browser.equalsIgnoreCase("Edge")) {
-            EdgeOptions op = new EdgeOptions();
-            op.setAcceptInsecureCerts(true);
-            d = new EdgeDriver(op);
+		} else if (browser.equalsIgnoreCase("Edge")) {
+			EdgeOptions op = new EdgeOptions();
+			op.setAcceptInsecureCerts(true);
+			d = new EdgeDriver(op);
 
-        } else if (browser.equalsIgnoreCase("FireFox")) {
-            FirefoxOptions op = new FirefoxOptions();
-            op.setAcceptInsecureCerts(true);
-            d = new FirefoxDriver(op);
-        }
+		} else if (browser.equalsIgnoreCase("FireFox")) {
+			FirefoxOptions op = new FirefoxOptions();
+			op.setAcceptInsecureCerts(true);
+			d = new FirefoxDriver(op);
+		}
 
-        d.manage().window().maximize();
-        d.get(UtilityMethod.getProperty("URL"));
+		d.manage().window().maximize();
+		d.get(UtilityMethod.getProperty("URL"));
 
-        clearBrowserCookies();
-    }
+		clearBrowserCookies();
+	}
 
-    // =====================================================================
-    //  LOGIN METHOD
-    // =====================================================================
-    @BeforeMethod
-    @Parameters("role")
-    public void loginMethod(String role) throws InterruptedException, IOException {
+	// =====================================================================
+	// LOGIN METHOD
+	// =====================================================================
+	@BeforeMethod
+	@Parameters("role")
+	public void loginMethod(String role) throws InterruptedException, IOException {
 
-        BaseClassPage bccp = new BaseClassPage(d);
-        WebDriverWait wait = new WebDriverWait(d, Duration.ofSeconds(10));
+		BaseClassPage bccp = new BaseClassPage(d);
+		WebDriverWait wait = new WebDriverWait(d, Duration.ofSeconds(10));
 
-        String username = "";
-        String password = "";
+		String username = "";
+		String password = "";
 
-        switch (role.toUpperCase()) {
-            case "NCS":
-                username = UtilityMethod.getProperty("SuperAdmin");
-                password = UtilityMethod.getProperty("SuperAdmiPassword");
-                break;
+		switch (role.toUpperCase()) {
+		case "NCS":
+			username = UtilityMethod.getProperty("SuperAdmin");
+			password = UtilityMethod.getProperty("SuperAdmiPassword");
+			break;
 
-            case "HO":
-                username = UtilityMethod.getProperty("HOUser");
-                password = UtilityMethod.getProperty("HOUserPassword");
-                break;
+		case "HO":
+			username = UtilityMethod.getProperty("HOUser");
+			password = UtilityMethod.getProperty("HOUserPassword");
+			break;
 
-            case "AUDITOR":
-                username = UtilityMethod.getProperty("AuditorUser");
-                password = UtilityMethod.getProperty("AuditorPassword");
-                break;
+		case "AUDITOR":
+			username = UtilityMethod.getProperty("AuditorUser");
+			password = UtilityMethod.getProperty("AuditorPassword");
+			break;
 
-            default:
-                username = UtilityMethod.getProperty("Default");
-                password = UtilityMethod.getProperty("DefaultPassword");
-                break;
-        }
+		default:
+			username = UtilityMethod.getProperty("Default");
+			password = UtilityMethod.getProperty("DefaultPassword");
+			break;
+		}
 
-        bccp.getUserID().sendKeys(username);
-        bccp.getPassword().sendKeys(password);
-        bccp.getLoginButton().click();
-        Thread.sleep(2000);
+		bccp.getUserID().sendKeys(username);
+		bccp.getPassword().sendKeys(password);
+		bccp.getLoginButton().click();
+		Thread.sleep(2000);
 
-        try {
-            Alert alert = d.switchTo().alert();
-            System.out.println("Alert Text: " + alert.getText());
-            alert.accept();
-        } catch (NoAlertPresentException e) {
-            System.out.println("No alert shown during login.");
-        }
+		try {
+			Alert alert = d.switchTo().alert();
+			System.out.println("Alert Text: " + alert.getText());
+			alert.accept();
+		} catch (NoAlertPresentException e) {
+			System.out.println("No alert shown during login.");
+		}
 
-        Thread.sleep(2000);
+		Thread.sleep(2000);
 
-        // MODULE SELECTION
-        try {
-            List<WebElement> modules = wait.until(
-                ExpectedConditions.presenceOfAllElementsLocatedBy(
-                    By.xpath("//div[@class='cls_ms_module_name_wrap']//p")
-                )
-            );
+		// MODULE SELECTION
+		try {
+			List<WebElement> modules = wait.until(ExpectedConditions
+					.presenceOfAllElementsLocatedBy(By.xpath("//div[@class='cls_ms_module_name_wrap']//p")));
 
-            for (WebElement m : modules) {
-                if (m.getText().equalsIgnoreCase(UtilityMethod.getProperty("Module"))) {
-                    wait.until(ExpectedConditions.elementToBeClickable(m)).click();
-                    System.out.println("Clicked module: " + m.getText());
-                    break;
-                }
-            }
+			for (WebElement m : modules) {
+				if (m.getText().equalsIgnoreCase(UtilityMethod.getProperty("Module"))) {
+					wait.until(ExpectedConditions.elementToBeClickable(m)).click();
+					System.out.println("Clicked module: " + m.getText());
+					break;
+				}
+			}
 
-        } catch (Exception e) {
-            System.out.println("Module selection skipped: " + e.getMessage());
-        }
-    }
+		} catch (Exception e) {
+			System.out.println("Module selection skipped: " + e.getMessage());
+		}
+	}
 
-    // =====================================================================
-    //  STABLE BRANCH CODE CLICK METHOD  (✨ KEY FEATURE)
-    // =====================================================================
-    public void clickBranchCode(String branchCode) {
-    	
-    	AuditObservationPage aop = new AuditObservationPage(d);
+	// =====================================================================
+	// STABLE BRANCH CODE CLICK METHOD (✨ KEY FEATURE)
+	// =====================================================================
+	public void clickBranchCode(String branchCode) {
 
-        WebDriverWait wait = new WebDriverWait(d, Duration.ofSeconds(15));
+		AuditObservationPage aop = new AuditObservationPage(d);
 
-        for (int retry = 0; retry < 3; retry++) {
-            try {
-				
-				  List<WebElement> rows = wait.until(
-				  ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(
-				  "//tr[contains(@class,'Rows')]")));
-				 
-                for (WebElement row : rows) {
-                    if (row.getText().contains(branchCode)) {
+		WebDriverWait wait = new WebDriverWait(d, Duration.ofSeconds(15));
 
-                        WebElement branchElement = aop.getBranchSelection(row);
+		for (int retry = 0; retry < 3; retry++) {
+			try {
 
-                        wait.until(ExpectedConditions.visibilityOf(branchElement));
-                        wait.until(ExpectedConditions.elementToBeClickable(branchElement));
+				List<WebElement> rows = wait.until(
+						ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//tr[contains(@class,'Rows')]")));
 
-                        // Scroll
-                        ((JavascriptExecutor) d).executeScript(
-                                "arguments[0].scrollIntoView(true);", branchElement);
-                        Thread.sleep(300);
+				for (WebElement row : rows) {
+					if (row.getText().contains(branchCode)) {
 
-                        try {
-                            branchElement.click();
-                        } catch (Exception e) {
-                            ((JavascriptExecutor) d).executeScript(
-                                    "arguments[0].click();", branchElement);
-                        }
+						WebElement branchElement = aop.getBranchSelection(row);
 
-                        System.out.println("Clicked Branch Code: " + branchCode);
-                        return;
-                    }
-                }
+						wait.until(ExpectedConditions.visibilityOf(branchElement));
+						wait.until(ExpectedConditions.elementToBeClickable(branchElement));
 
-                System.out.println("Branch not found in this retry...");
+						// Scroll
+						((JavascriptExecutor) d).executeScript("arguments[0].scrollIntoView(true);", branchElement);
+						Thread.sleep(300);
 
-            } catch (Exception e) {
-                System.out.println("Retry " + retry + " failed: " + e.getMessage());
-            }
-        }
+						try {
+							branchElement.click();
+						} catch (Exception e) {
+							((JavascriptExecutor) d).executeScript("arguments[0].click();", branchElement);
+						}
 
-        throw new RuntimeException("Branch Code NOT CLICKED even after 3 retries: " + branchCode);
-    }
+						System.out.println("Clicked Branch Code: " + branchCode);
+						return;
+					}
+				}
 
-    // =====================================================================
-    //  LOGOUT
-    // =====================================================================
-    @AfterClass
-    public void logoutMethod() {
-        try {
-            BaseClassPage bccp = new BaseClassPage(d);
-            bccp.getLogout().click();
+				System.out.println("Branch not found in this retry...");
 
-            try {
-                Alert alert = d.switchTo().alert();
-                alert.accept();
-            } catch (NoAlertPresentException e) {}
+			} catch (Exception e) {
+				System.out.println("Retry " + retry + " failed: " + e.getMessage());
+			}
+		}
 
-        } catch (Exception e) {
-            System.out.println("Logout not executed: " + e.getMessage());
-        }
-    }
+		throw new RuntimeException("Branch Code NOT CLICKED even after 3 retries: " + branchCode);
+	}
 
-    // =====================================================================
-    //  CLOSE BROWSER
-    // =====================================================================
-    @AfterClass
-    public void closeBrowser() {
-        d.quit();
-    }
+	// =====================================================================
+	// LOGOUT
+	// =====================================================================
+	//@AfterMethod
+	public void logoutMethod() {
+		try {
+			BaseClassPage bccp = new BaseClassPage(d);
+			bccp.getLogout().click();
+
+			try {
+				Alert alert = d.switchTo().alert();
+				alert.accept();
+			} catch (NoAlertPresentException e) {
+			}
+
+		} catch (Exception e) {
+			System.out.println("Logout not executed: " + e.getMessage());
+		}
+	}
+
+	// =====================================================================
+	// CLOSE BROWSER
+	// =====================================================================
+	//@AfterClass
+	public void closeBrowser() {
+		d.quit();
+	}
 }

@@ -28,7 +28,7 @@ public class ScheduleAuthScreen extends BaseClass {
 		Select s1 = new Select(AttachedTo);
 		s1.selectByValue(UtilityMethod.getProperty("SchZone"));
 
-		//Auditee Code/Name Search
+		// Auditee Code/Name Search
 		sap.getSearchBox().sendKeys(UtilityMethod.getProperty("BranchCode"));
 
 		Thread.sleep(2000);
@@ -46,10 +46,10 @@ public class ScheduleAuthScreen extends BaseClass {
 			}
 
 		}
-		
+
 		// Check Box
 		List<WebElement> rows = sap.getBranchCodeRows();
-		
+
 		for (WebElement row : rows) {
 			if (row.getText().contains(UtilityMethod.getProperty("BranchCode"))) {
 				WebElement CheckBox = sap.getCheckBox(row);
@@ -59,8 +59,8 @@ public class ScheduleAuthScreen extends BaseClass {
 		}
 
 		sap.getSave().click();
-		
-		System.out.println("Branch "+UtilityMethod.getProperty("BranchCode")+" has been Scheduled");
+
+		System.out.println("Branch " + UtilityMethod.getProperty("BranchCode") + " has been Scheduled");
 
 	}
 
