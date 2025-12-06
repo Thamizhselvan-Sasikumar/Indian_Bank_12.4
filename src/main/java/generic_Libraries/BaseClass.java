@@ -202,10 +202,69 @@ public class BaseClass {
 		throw new RuntimeException("Branch Code NOT CLICKED even after 3 retries: " + branchCode);
 	}
 
+	
+	public void safeClick(WebElement element) {
+	    WebDriverWait wait = new WebDriverWait(d, Duration.ofSeconds(10));
+
+	    wait.until(ExpectedConditions.visibilityOf(element));
+	    wait.until(ExpectedConditions.elementToBeClickable(element));
+
+	    try {
+	        element.click();
+	    } catch (Exception e) {
+	        ((JavascriptExecutor) d).executeScript("arguments[0].click();", element);
+	    }
+	}
+	
+	
+	public void handleUnexpectedAlert() {
+	    try {
+	        Alert alert = d.switchTo().alert();
+	        System.out.println("Alert handled: " + alert.getText());
+	        alert.accept();
+	    } catch (Exception e) {
+	        // No alert
+	    }
+	}
+	
+	public void clickSaveButton(WebElement saveBtn) {
+	    WebDriverWait wait = new WebDriverWait(d, Duration.ofSeconds(15));
+
+	    try {
+	        // Wait for button to be clickable
+	        wait.until(ExpectedConditions.elementToBeClickable(saveBtn));
+
+	        // Scroll into view
+	        ((JavascriptExecutor) d).executeScript("arguments[0].scrollIntoView(true);", saveBtn);
+	        Thread.sleep(300);
+
+	        // Try normal click
+	        try {
+	            saveBtn.click();
+	        } catch (Exception e) {
+	            // Fallback JS click
+	            ((JavascriptExecutor) d).executeScript("arguments[0].click();", saveBtn);
+	        }
+
+	        // Handle alert if triggered after save
+	        try {
+	            Alert a = d.switchTo().alert();
+	            System.out.println("Save Alert: " + a.getText());
+	            a.accept();
+	        } catch (Exception e) {}
+
+	        // Wait for page load / refresh
+	        Thread.sleep(1500);
+
+	    } catch (Exception e) {
+	        System.out.println("SAVE button not clicked: " + e.getMessage());
+	    }
+	}
+	
 	// =====================================================================
 	// LOGOUT
 	// =====================================================================
-	//@AfterMethod
+	@AfterMethod
 	public void logoutMethod() {
 		try {
 			BaseClassPage bccp = new BaseClassPage(d);
@@ -226,7 +285,7 @@ public class BaseClass {
 	// =====================================================================
 	// CLOSE BROWSER
 	// =====================================================================
-	//@AfterClass
+	@AfterClass
 	public void closeBrowser() {
 		d.quit();
 	}

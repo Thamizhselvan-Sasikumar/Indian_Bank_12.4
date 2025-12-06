@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Indian_Bank.AuditObservation">
+      <class name="Indian_Bank.ModuleMapping">
         <methods>
           <include name="launchBrowser"/>
-          <include name="Observation"/>
+          <include name="ModuleMappingTest"/>
           <include name="loginMethod"/>
         </methods>
-      </class> <!-- Indian_Bank.AuditObservation -->
+      </class> <!-- Indian_Bank.ModuleMapping -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

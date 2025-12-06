@@ -17,8 +17,8 @@
 			<class name="Indian_Bank.ScheduleScreen" />
 			<class name="Indian_Bank.ScheduleAuthScreen" />
 		</classes>
-	</test>
--->
+	</test>-->
+
 	<test name="AuditExecution">
 		<parameter name="role" value="AUDITOR" />
 		<classes>
@@ -26,8 +26,8 @@
 			<class name="Indian_Bank.AccountSampling" />
 			<class name="Indian_Bank.AuditObservation" />
 			<class name="Indian_Bank.AuditObservationAuth" />-->
-			<!--<class name="Indian_Bank.JLScoreSheet" />-->
-			<class name="Indian_Bank.ExecutiveSummary" />
+			<class name="Indian_Bank.JLScoreSheet" />
+			<!--<class name="Indian_Bank.ExecutiveSummary" />-->
 		</classes>
 	</test>
 

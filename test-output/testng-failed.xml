@@ -4,15 +4,15 @@
   <test thread-count="5" name="AuditExecution(failed)">
     <parameter name="role" value="AUDITOR"/>
     <classes>
-      <class name="Indian_Bank.JLScoreSheet">
+      <class name="Indian_Bank.AuditObservation">
         <methods>
           <include name="launchBrowser"/>
+          <include name="Observation"/>
           <include name="logoutMethod"/>
           <include name="closeBrowser"/>
-          <include name="JLScoreSheetTest"/>
           <include name="loginMethod"/>
         </methods>
-      </class> <!-- Indian_Bank.JLScoreSheet -->
+      </class> <!-- Indian_Bank.AuditObservation -->
     </classes>
   </test> <!-- AuditExecution(failed) -->
 </suite> <!-- Failed suite [AuditSuite] -->

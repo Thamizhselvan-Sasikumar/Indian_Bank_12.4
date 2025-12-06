@@ -11,75 +11,63 @@ import org.openqa.selenium.support.PageFactory;
 public class ModuleMappingPage {
 	
 	public ModuleMappingPage(WebDriver d) {
-
 		PageFactory.initElements(d, this);
 	}
 	
-	public WebElement getMasterMenu() {
-		return MasterMenu;
+	public WebElement getMaster() {
+		return Master;
 	}
 
-	public WebElement getAuditeeMenu() {
-		return AuditeeMenu;
+	public WebElement getAuditee() {
+		return Auditee;
 	}
 
-	public WebElement getModuleMappingMasterMenu() {
-		return ModuleMappingMasterMenu;
+	public WebElement getModuleMappingMaster() {
+		return ModuleMappingMaster;
 	}
 
-	public WebElement getBranchSearch() {
-		return BranchSearch;
+	public WebElement getSearchBox() {
+		return SearchBox;
 	}
 
-	
-	public WebElement getModuleList() {
+	public List<WebElement> getBranList() {
+		return BranList;
+	}
+
+	public List<WebElement> getModuleList() {
 		return ModuleList;
 	}
 
+	public WebElement getCheckBox(WebElement modList) {
+		return modList.findElement(By.xpath(".//input[@type='checkbox']"));
+	}
+	
 	public WebElement getSaveButton() {
 		return SaveButton;
 	}
 
 	@FindBy(xpath = "//div[@class='cls_menu_level1_options']//img[@title='Master']")
-	private WebElement MasterMenu;
-
+	private WebElement Master;
+	
 	@FindBy(xpath = "//div[@class='menuGroup6 cls_menu_level2_options_toggled']//h4[text()='Auditee']")
-	private WebElement AuditeeMenu;
-
+	private WebElement Auditee;
+	
 	@FindBy(xpath = "//a[text()='Module Mapping master']")
-	private WebElement ModuleMappingMasterMenu;
-
+	private WebElement ModuleMappingMaster;
+	
 	@FindBy(xpath = "//input[@id='searchid']")
-	private WebElement BranchSearch;
+	private WebElement SearchBox;
 	
-	public WebElement getCheckBox(WebElement row) {
-		return row.findElement(By.xpath(".//input[contains(@id,'checkFlag')]"));
-	}
-
-	@FindBy(xpath = ".//input[contains(@id,'checkFlag')]")
-	private WebElement CheckBox;
-	
-	public List<WebElement> getBranchList() {
-		return BranchList;
-	}
-
 	@FindBy(xpath = "//div[@class='search']//li")
-	private List<WebElement> BranchList;
+	private List<WebElement> BranList;
 	
-	public List<WebElement> getModList() {
-		return ModList;
-	}
-
 	@FindBy(xpath = "//tr[contains(@class,'Rows')]")
-	private List<WebElement> ModList;
+	private List<WebElement> ModuleList;
 	
-	@FindBy(xpath = "//tbody[@class='sticky_tbody']//tr") //Module list
-	private WebElement ModuleList;
+	@FindBy(xpath = ".//input[@type='checkbox']")
+	private WebElement CheckBox;
 	
 	@FindBy(xpath = "//table[@id='pagination']//button")
 	private WebElement SaveButton;
-	
 
-	
-	
 }

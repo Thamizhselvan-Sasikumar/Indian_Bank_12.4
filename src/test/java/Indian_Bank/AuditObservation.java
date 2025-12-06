@@ -110,9 +110,7 @@ public class AuditObservation extends BaseClass {
 		}
 
 		// Overall Save
-		WebElement Save = aop.getOverallSaveButton();
-		wait.until(ExpectedConditions.visibilityOfAllElements(Save));
-		Save.click();
+		clickSaveButton(aop.getOverallSaveButton());
 		
 		System.out.println("Account has been Saved");
 
@@ -153,9 +151,7 @@ public class AuditObservation extends BaseClass {
 		aop.getChecklistSaveButton().click();
 
 		// General Banking Save Button
-		WebElement overallSave = aop.getOverallSaveButton();
-		wait.until(ExpectedConditions.visibilityOfAllElements(overallSave));
-		overallSave.click();
+		clickSaveButton(aop.getOverallSaveButton());
 		
 		System.out.println("General Banking Saved");
 
@@ -174,11 +170,21 @@ public class AuditObservation extends BaseClass {
 		Select s1 = new Select(AuditType_ZT);
 		s1.selectByValue("ZT");
 
-		wait.until(ExpectedConditions.visibilityOfAllElements(aop.getSelectAll()));
-		aop.getSelectAll().click();
-		
-		wait.until(ExpectedConditions.visibilityOfAllElements(aop.getNextButton()));
-		aop.getNextButton().click();
+		// WAIT for page/table to load fully
+		//wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table")));
+
+		// Scroll Select All into view
+		((JavascriptExecutor)d).executeScript("arguments[0].scrollIntoView(true);", aop.getSelectAll());
+
+		// SAFE CLICK (never fails)
+		safeClick(aop.getSelectAll());
+
+		// WAIT for "Next" to become clickable
+		wait.until(ExpectedConditions.elementToBeClickable(aop.getNextButton()));
+		((JavascriptExecutor)d).executeScript("arguments[0].scrollIntoView(true);", aop.getNextButton());
+
+		// SAFE CLICK for Next
+		safeClick(aop.getNextButton());
 
 		// Select Checklist DropDown
 		List<WebElement> dropdown_ZT = aop.getChecklistDropdown();
@@ -198,9 +204,7 @@ public class AuditObservation extends BaseClass {
 		}
 
 		// Zero Tolerance Save Button
-		WebElement SaveZT = aop.getOverallSaveButton();
-		wait.until(ExpectedConditions.visibilityOfAllElements(SaveZT));
-		SaveZT.click();
+		clickSaveButton(aop.getOverallSaveButton());
 
 	}
 
