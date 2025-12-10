@@ -105,7 +105,7 @@ public class AuditObservation extends BaseClass {
 			wait.until(ExpectedConditions.visibilityOfAllElements(dd));
 			Select s = new Select(dd);
 			s.selectByValue("N");
-			aop.getAuditorComment().sendKeys(UtilityMethod.getProperty("CommentsAcct"));
+			aop.getAuditorComment().sendKeys(UtilityMethod.getProperty("CommentsAcct")+" - "+ (i+1));
 			aop.getChecklistSaveButton().click();
 		}
 
@@ -137,7 +137,7 @@ public class AuditObservation extends BaseClass {
 			wait.until(ExpectedConditions.visibilityOfAllElements(dd_GB));
 			Select s1 = new Select(dd_GB);
 			s1.selectByValue("N");
-			aop.getAuditorComment().sendKeys(UtilityMethod.getProperty("CommentsGB"));
+			aop.getAuditorComment().sendKeys(UtilityMethod.getProperty("CommentsGB")+" - "+ (i+1));
 			aop.getChecklistSaveButton().click();
 		}
 
@@ -147,7 +147,7 @@ public class AuditObservation extends BaseClass {
 		((JavascriptExecutor) d).executeScript("arguments[0].scrollIntoView(true);", MandatoryChecklist);
 		Select s2 = new Select(MandatoryChecklist);
 		s2.selectByValue("N");
-		aop.getAuditorComment().sendKeys(UtilityMethod.getProperty("CommentsGB"));
+		aop.getAuditorComment().sendKeys(UtilityMethod.getProperty("CommentsGB")+" - "+ "Mandatory Checklist");
 		aop.getChecklistSaveButton().click();
 
 		// General Banking Save Button
@@ -199,7 +199,7 @@ public class AuditObservation extends BaseClass {
 			s3.selectByValue("N");
 			Alert a = d.switchTo().alert();
 			a.accept();
-			aop.getAuditorComment().sendKeys(UtilityMethod.getProperty("CommentsZT"));
+			aop.getAuditorComment().sendKeys(UtilityMethod.getProperty("CommentsZT")+" - "+ (i+1));
 			aop.getChecklistSaveButton().click();
 		}
 

@@ -1,28 +1,28 @@
 package Indian_Bank;
 
-import java.io.IOException;
-import java.util.Iterator;
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import generic_Libraries.BaseClass;
 import generic_Libraries.UtilityMethod;
 import pom_package.AuditObservationPage;
-import pom_package.JLScoreSheetPage;
 
 public class JLScoreSheet extends BaseClass {
 
 	@Test
-	public void JLScoreSheetTest() throws IOException, InterruptedException {
+	public void JLScoreSheetTest() throws Exception {
+
+		System.out.println("JL Score Sheet");
 
 		AuditObservationPage aop = new AuditObservationPage(d);
-		JLScoreSheetPage jsp = new JLScoreSheetPage(d);
+		WebDriverWait wait = new WebDriverWait(d, Duration.ofSeconds(10));
 
 		// Branch Search
 		aop.getBranchSearch().sendKeys(UtilityMethod.getProperty("BranchCode"));
@@ -30,34 +30,43 @@ public class JLScoreSheet extends BaseClass {
 		// Branch Selection
 		clickBranchCode(UtilityMethod.getProperty("BranchCode"));
 
-		System.out.println("Branch selected");
-
 		// Audit
+		wait.until(ExpectedConditions.visibilityOf(aop.getAudit()));
 		aop.getAudit().click();
 
-		// JL Score Sheet
-		WebElement menu = jsp.getJLScoreSheetMenu();
-		((JavascriptExecutor) d).executeScript("arguments[0].scrollIntoView(true);", menu);
-		jsp.getJLScoreSheetMenu().click();
+		System.out.println("Clicked Audit");
 
-		// Select Checklist DropDown
-		List<WebElement> dropdown = d.findElements(By.xpath("//select[contains(@id,'cmmds')]"));
-		// Select Text Box
-		List<WebElement> TextBox = d.findElements(By.xpath("//textarea[contains(@id,'textarea')]"));
+		// JL Score Sheet Menu
+		clickLeftMenu("JL Score Sheet");
 
-		//int limit = Integer.parseInt(UtilityMethod.getProperty("ChecklistLimitAcct"));
+		// JL Score sheet Checklist Function
+		List<WebElement> StausDropdown = d.findElements(By.xpath("//select[contains(@id,'cmmds')]"));
+		List<WebElement> RemarksTextBox = d.findElements(By.xpath("//textarea[contains(@id,'textarea')]"));
+		List<WebElement> RiskDropdown = d.findElements(By.xpath("//select[contains(@id,'risk')]"));
 
-		for (int i = 0; i < 1; i++) {
-			Thread.sleep(2000);
-			WebElement dd = dropdown.get(i);
-			wait.until(ExpectedConditions.visibilityOfAllElements(dd));
-			Select s = new Select(dd);
-			s.selectByValue("Y");
-			d.findElement(By.xpath(""));
-			aop.getChecklistSaveButton().click();
+		int limit = Integer.parseInt(UtilityMethod.getProperty("ChecklistLimitJL"));
+
+		for (int i = 0; i < limit; i++) {
+			// Thread.sleep(2000);
+			WebElement sd = StausDropdown.get(i);
+			wait.until(ExpectedConditions.visibilityOfAllElements(sd));
+			Select s1 = new Select(sd);
+			s1.selectByVisibleText(UtilityMethod.getProperty("StatusJL"));
+			// Thread.sleep(2000);
+			WebElement rtb = RemarksTextBox.get(i);
+			rtb.sendKeys(UtilityMethod.getProperty("CommentsJL") + " - " + (i + 1));
+			// Thread.sleep(2000);
+			WebElement rd = RiskDropdown.get(i);
+			wait.until(ExpectedConditions.visibilityOfAllElements(rd));
+			Select s2 = new Select(rd);
+			s2.selectByVisibleText(UtilityMethod.getProperty("RiskJL"));
 		}
 
-		Thread.sleep(5000);
+		// Upload file for 15% of JL Verification Certificate Upload
+		d.findElement(By.xpath("//a[@id='uploadbtn']")).click();
+
+		//d.findElement(By.id("filetext")).click();
+		uploadFileTest();
 
 	}
 

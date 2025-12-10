@@ -11,6 +11,10 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
@@ -261,10 +265,83 @@ public class BaseClass {
 	    }
 	}
 	
+	public void clickLeftMenu(String menuName) {
+	    WebDriverWait wait = new WebDriverWait(d, Duration.ofSeconds(15));
+
+	    for (int retry = 0; retry < 4; retry++) {
+	        try {
+	            // Find menu item
+	            WebElement menu = wait.until(ExpectedConditions.visibilityOfElementLocated(
+	                    By.xpath("//a[normalize-space()='" + menuName + "']")));
+
+	            // Scroll into center (stable scroll)
+	            ((JavascriptExecutor) d).executeScript(
+	                    "arguments[0].scrollIntoView({block: 'center', inline: 'nearest'});", menu);
+
+	            Thread.sleep(400); // let UI settle
+
+	            try {
+	                wait.until(ExpectedConditions.elementToBeClickable(menu)).click();
+	            } catch (Exception e) {
+	                ((JavascriptExecutor) d).executeScript("arguments[0].click();", menu);
+	            }
+
+	            // Small pause to confirm correct navigation
+	            Thread.sleep(600);
+
+	            System.out.println("Clicked Menu Successfully: " + menuName);
+	            return;
+
+	        } catch (Exception e) {
+	            System.out.println("Retry Menu Click [" + retry + "] for: " + menuName);
+	        }
+	    }
+
+	    throw new RuntimeException("Menu NOT CLICKED even after retries: " + menuName);
+	}
+	
+	
+	//File Upload
+	public void uploadThroughFileExplorer(String filePath) throws Exception {
+
+	    // Copy file path to clipboard
+	    StringSelection ss = new StringSelection(filePath);
+	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+
+	    // Create Robot instance
+	    Robot robot = new Robot();
+	    robot.setAutoDelay(500);
+
+	    // Press CTRL + V (paste the file path into the File Explorer window)
+	    robot.keyPress(KeyEvent.VK_CONTROL);
+	    robot.keyPress(KeyEvent.VK_V);
+	    robot.keyRelease(KeyEvent.VK_V);
+	    robot.keyRelease(KeyEvent.VK_CONTROL);
+
+	    robot.setAutoDelay(500);
+
+	    // Press ENTER to confirm file selection
+	    robot.keyPress(KeyEvent.VK_ENTER);
+	    robot.keyRelease(KeyEvent.VK_ENTER);
+	}
+	
+	public void uploadFileTest() throws Exception {
+
+	    // Click the upload icon or button that opens File Explorer
+	    d.findElement(By.xpath("//input[contains(@id,'filetext')]")).click();
+
+	    Thread.sleep(1500); // wait for File Explorer to appear
+
+	    // Call the Robot upload method
+	    uploadThroughFileExplorer("E:\\Thamizh\\Upload File\\JL Score Sheet.pdf");
+
+	    System.out.println("File uploaded successfully!");
+	}
+	
 	// =====================================================================
 	// LOGOUT
 	// =====================================================================
-	@AfterMethod
+	//@AfterMethod
 	public void logoutMethod() {
 		try {
 			BaseClassPage bccp = new BaseClassPage(d);
@@ -285,7 +362,7 @@ public class BaseClass {
 	// =====================================================================
 	// CLOSE BROWSER
 	// =====================================================================
-	@AfterClass
+	//@AfterClass
 	public void closeBrowser() {
 		d.quit();
 	}

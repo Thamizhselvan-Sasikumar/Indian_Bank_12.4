@@ -46,7 +46,7 @@ public class ModuleMapping extends BaseClass {
 
 		for (WebElement modList : modLists) {
 
-			if (modList.getText().contains("Risk Based Internal Audit")) {
+			if (modList.getText().contains(UtilityMethod.getProperty("Module"))) {
 
 				// Re-locate checkbox fresh (avoid stale element)
 				WebElement checkBox = mmp.getCheckBox(modList);

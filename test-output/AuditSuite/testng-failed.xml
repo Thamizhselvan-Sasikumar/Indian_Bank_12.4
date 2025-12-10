@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [AuditSuite]">
-  <test thread-count="5" name="AuditExecution(failed)">
-    <parameter name="role" value="AUDITOR"/>
+  <test thread-count="5" name="BranchCreation(failed)">
+    <parameter name="role" value="NCS"/>
     <classes>
-      <class name="Indian_Bank.AuditObservation">
+      <class name="Indian_Bank.BranchCreation">
         <methods>
           <include name="launchBrowser"/>
-          <include name="Observation"/>
-          <include name="logoutMethod"/>
-          <include name="closeBrowser"/>
           <include name="loginMethod"/>
+          <include name="branchCreation"/>
         </methods>
-      </class> <!-- Indian_Bank.AuditObservation -->
+      </class> <!-- Indian_Bank.BranchCreation -->
+      <class name="Indian_Bank.ModuleMapping">
+        <methods>
+          <include name="launchBrowser"/>
+          <include name="loginMethod"/>
+          <include name="ModuleMappingTest"/>
+        </methods>
+      </class> <!-- Indian_Bank.ModuleMapping -->
     </classes>
-  </test> <!-- AuditExecution(failed) -->
+  </test> <!-- BranchCreation(failed) -->
 </suite> <!-- Failed suite [AuditSuite] -->
